@@ -1,0 +1,23 @@
+文档视图结构
+文档：专门用来存储数据
+视图：用来显示更改数据
+框架类:相框，视图相片。
+
+
+
+应用程序类CWinApp：
+	InitInstance()程序的入口地址
+框架类CFrameWnd：
+	PreCreateWindow()窗口创建前调用
+	OnCreate()创建窗口后，触发WM_CREATE消息的处理函数
+视图类CView：
+	OnDraw():绘图
+	WM_PAINT消息处理函数 OnPaint()内部调用OnDraw()
+	OnDraw和OnPaint只能存在一个，如果两者同时存在，则OnPaint才有效
+
+多字节和宽字节
+
+MFC命名规范
+	类名和函数名字：单词首字母大写
+	成员变量：m_xXxx
+	局部变量：xXxx

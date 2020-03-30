@@ -14,6 +14,10 @@ class MyFrame :public CFrameWnd {
 public:
 
 	MyFrame();
+	// ³ÉÔ±ÉùÃ÷
+	DECLARE_MESSAGE_MAP()
+	afx_msg void OnLButtonDown(UINT, CPoint);
+	afx_msg void OnPaint();
 
 };
 
