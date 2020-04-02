@@ -146,10 +146,7 @@ void CMy06_timerView::OnTimer(UINT_PTR nIDEvent)
 		RectMove(dc, brush2, 40, 120, imgW, wWith, w2,color2);
 		RectMove(dc, brush2, 70, 240, imgW, wWith, w3, color3);
 		RectMove(dc, brush2, 100, 360, imgW, wWith, w4, color4);
-
-
 	}
-
 
 	CView::OnTimer(nIDEvent);
 }

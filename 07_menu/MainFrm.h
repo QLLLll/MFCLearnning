@@ -37,8 +37,13 @@ protected:  // 控件条嵌入成员
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
-private:
 
+public:
+	afx_msg void OnUpdateTestA(CCmdUI *pCmdUI);
+private:
+	bool m_isUpdate;
+public:
+	afx_msg void OnTestB();
 };
 
 
