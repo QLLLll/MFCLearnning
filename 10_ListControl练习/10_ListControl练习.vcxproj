@@ -191,6 +191,7 @@
   <ItemGroup>
     <ClInclude Include="10_ListControl练习.h" />
     <ClInclude Include="10_ListControl练习Dlg.h" />
+    <ClInclude Include="People.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

@@ -6,7 +6,7 @@
 #include "10_ListControl练习.h"
 #include "10_ListControl练习Dlg.h"
 #include "afxdialogex.h"
-
+#include"People.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -53,6 +53,7 @@ CMy10_ListControl练习Dlg::CMy10_ListControl练习Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_MY10_LISTCONTROL_DIALOG, pParent)
 	, m_check(_T(""))
 	, m_age(0)
+
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -62,6 +63,10 @@ void CMy10_ListControl练习Dlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	//  DDX_Control(pDX, IDC_BUTTON1, m_rcMan);
 	DDX_Control(pDX, IDC_COMBO1, m_people);
+	DDX_Control(pDX, IDC_LIST1, m_list);
+	//  DDX_Control(pDX, IDC_EDIT1, m_age);
+	//  DDX_Text(pDX, IDC_EDIT1, m_age);
+	DDX_Text(pDX, IDC_EDIT1, m_age);
 }
 
 BEGIN_MESSAGE_MAP(CMy10_ListControl练习Dlg, CDialogEx)
@@ -70,6 +75,8 @@ BEGIN_MESSAGE_MAP(CMy10_ListControl练习Dlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_RADIO1, &CMy10_ListControl练习Dlg::OnBnClickedRadio1)
 	ON_BN_CLICKED(IDC_RADIO2, &CMy10_ListControl练习Dlg::OnBnClickedRadio2)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMy10_ListControl练习Dlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMy10_ListControl练习Dlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -118,7 +125,13 @@ BOOL CMy10_ListControl练习Dlg::OnInitDialog()
 	}
 	m_people.SetCurSel(0);
 
+	m_list.SetExtendedStyle(m_list.GetExtendedStyle() | LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT);
 
+	m_list.InsertColumn(0, TEXT("姓名"),LVCFMT_LEFT,50);
+	m_list.InsertColumn(1, TEXT("性别"),LVCFMT_LEFT,50); 
+	m_list.InsertColumn(2, TEXT("年龄"),LVCFMT_LEFT,50);
+
+	m_check = TEXT("男");
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -184,4 +197,42 @@ void CMy10_ListControl练习Dlg::OnBnClickedRadio2()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	m_check = TEXT("女");
+}
+
+
+void CMy10_ListControl练习Dlg::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+	static int i = 0;
+
+	CString strName;
+
+	m_people.GetLBText(m_people.GetCurSel(), strName);
+	m_list.InsertItem(i, strName);
+	int j = 1;
+	m_list.SetItemText(i, j++, m_check);
+	CString strNum;
+	strNum.Format(TEXT("%d"), m_age);
+	m_list.SetItemText(i++, j, strNum);
+}
+
+
+void CMy10_ListControl练习Dlg::OnBnClickedButton2()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+		if (m_list.GetSelectedCount() > 0) {
+
+		POSITION pos=	m_list.GetFirstSelectedItemPosition();
+
+		while (pos)
+		{
+			int nSelected = m_list.GetNextSelectedItem(pos); //获取选中行的索引
+			m_list.DeleteItem(nSelected); //根据索引删除
+			pos = m_list.GetFirstSelectedItemPosition();
+		}
+
+		}
+
 }

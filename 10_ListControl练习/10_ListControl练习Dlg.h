@@ -4,6 +4,7 @@
 
 #pragma once
 #include "afxwin.h"
+#include "afxcmn.h"
 
 
 // CMy10_ListControlÁ·Ï°Dlg ¶Ô»°¿ò
@@ -41,5 +42,15 @@ public:
 	afx_msg void OnBnClickedRadio2();
 private:
 	CComboBox m_people;
+	
+	CListCtrl m_list;
+public:
+	afx_msg void OnBnClickedButton1();
+private:
+public:
+//	CString m_age;
+private:
 	int m_age;
+public:
+	afx_msg void OnBnClickedButton2();
 };
