@@ -224,7 +224,7 @@ void CMy10_ListControlÁ·Ï°Dlg::OnBnClickedButton2()
 
 		if (m_list.GetSelectedCount() > 0) {
 
-		POSITION pos=	m_list.GetFirstSelectedItemPosition();
+		POSITION pos=m_list.GetFirstSelectedItemPosition();
 
 		while (pos)
 		{
