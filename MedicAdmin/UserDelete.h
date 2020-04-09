@@ -30,4 +30,7 @@ private:
 	virtual void OnOK();
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnCbnSelchangeCombo1();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton1();
 };

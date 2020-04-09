@@ -73,7 +73,7 @@ void CMedicListView::OnInitialUpdate()
 	CMedicSet *pMySet = pDoc->GetMedicSet();
 
 	if (pMySet->IsOpen() == FALSE) {
-		pMySet->Open();
+		pMySet->Open(CRecordset::dynaset);
 	}
 
 	pMySet->MoveFirst();

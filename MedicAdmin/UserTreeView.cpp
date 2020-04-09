@@ -77,7 +77,7 @@ void CUserTreeView::OnInitialUpdate()
 	CUserSet * userSet = pDoc->GetUserSet();
 
 	if (userSet->IsOpen() == FALSE) {
-		userSet->Open();
+		userSet->Open(CRecordset::dynaset);
 	}
 
 	CString root[3] = {
