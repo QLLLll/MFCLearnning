@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}</ProjectGuid>
-    <RootNamespace>MedicAdmin</RootNamespace>
+    <ProjectGuid>{582D6090-18AB-42CC-B2BA-C5C01991A349}</ProjectGuid>
+    <RootNamespace>MFCSendEmail</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -75,6 +75,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -92,11 +94,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>blat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\C++AutocadCode\MFCLLLearnningRRRR\MFCSendEmail\blat_32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -120,7 +124,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -148,7 +151,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -176,7 +178,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -193,61 +194,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainFrm.h" />
-    <ClInclude Include="MedicAdmin.h" />
-    <ClInclude Include="MedicAdminDoc.h" />
-    <ClInclude Include="MedicAdminView.h" />
-    <ClInclude Include="MedicListView.h" />
-    <ClInclude Include="MedicSet.h" />
+    <ClInclude Include="MFCSendEmail.h" />
+    <ClInclude Include="MFCSendEmailDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="UserA.h" />
-    <ClInclude Include="UserAdd.h" />
-    <ClInclude Include="UserDelete.h" />
-    <ClInclude Include="UserLogin.h" />
-    <ClInclude Include="UserSet.h" />
-    <ClInclude Include="UserTreeView.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="MedicAdmin.cpp" />
-    <ClCompile Include="MedicAdminDoc.cpp" />
-    <ClCompile Include="MedicAdminView.cpp" />
-    <ClCompile Include="MedicListView.cpp" />
-    <ClCompile Include="MedicSet.cpp" />
+    <ClCompile Include="MFCSendEmail.cpp" />
+    <ClCompile Include="MFCSendEmailDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UserAdd.cpp" />
-    <ClCompile Include="UserDelete.cpp" />
-    <ClCompile Include="UserLogin.cpp" />
-    <ClCompile Include="UserSet.cpp" />
-    <ClCompile Include="UserTreeView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MedicAdmin.rc" />
+    <ResourceCompile Include="MFCSendEmail.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MedicAdmin.rc2" />
+    <None Include="res\MFCSendEmail.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\doctor.BMP" />
-    <Image Include="res\manager.BMP" />
-    <Image Include="res\MedicAdmin.ico" />
-    <Image Include="res\MedicAdminDoc.ico" />
-    <Image Include="res\normal.BMP" />
-    <Image Include="res\salesman.BMP" />
+    <Image Include="res\MFCSendEmail.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="MedicAdmin.rc" />
+      <UserProperties RESOURCE_FILE="MFCSendEmail.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

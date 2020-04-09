@@ -5,6 +5,8 @@
 #include "MedicAdmin.h"
 #include "UserTreeView.h"
 #include"Resource.h"
+#include"UserAdd.h"
+#include"UserA.h"
 
 extern CString G_LoginName;
 // CUserTreeView
@@ -21,6 +23,7 @@ CUserTreeView::~CUserTreeView()
 }
 
 BEGIN_MESSAGE_MAP(CUserTreeView, CTreeView)
+	ON_COMMAND(ID_32775, &CUserTreeView::OnUserAdd)
 END_MESSAGE_MAP()
 
 
@@ -99,20 +102,73 @@ void CUserTreeView::OnInitialUpdate()
 
 		while (!userSet->IsEOF())
 		{
+			CString addNode;
+
+			addNode.Format(TEXT("%s(%s)"), CString(userSet->m_name), CString(userSet->m_account));
+
 			if (G_LoginName == CString(userSet->m_name)) {
 
 				CString str;
 
-				str.Format(TEXT("[已登录] %s"), CString(userSet->m_name));
+				str.Format(TEXT("[已登录] %s"), addNode);
 
 				treeCtrl.InsertItem(str, i, i, item1);
 			}
 			else {
-				treeCtrl.InsertItem(CString(userSet->m_name), i, i, item1);
+				treeCtrl.InsertItem(addNode, i, i, item1);
 			}
 			userSet->MoveNext();
 		}
 
 	}
 
+}
+
+
+void CUserTreeView::OnUserAdd()
+{
+	// TODO: 在此添加命令处理程序代码
+	CUserAdd userAddDia;
+	userAddDia.DoModal();
+
+	if (userAddDia.m_isAdd) {
+		Invalidate();
+
+		POSITION pos = userAddDia.listUser.GetHeadPosition();
+
+		while (pos != NULL) {
+
+			CUserA u=userAddDia.listUser.GetAt(pos);
+
+			CString userType = u.m_type;
+			CString userName = u.m_userName;
+			CString userAcount = u.m_userAccount;
+
+			CString addNode;
+
+			addNode.Format(TEXT("%s(%s)"), userName, userAcount);
+
+			CTreeCtrl & treeCtrl = GetTreeCtrl();
+
+			HTREEITEM item1 = treeCtrl.GetRootItem();
+			CString strType = treeCtrl.GetItemText(item1);
+			int i = 0;
+			while (!strType.IsEmpty())
+			{
+				if (userType == strType) {
+
+					treeCtrl.InsertItem(addNode, i, i, item1);
+
+					break;
+				}
+				i++;
+				item1 = treeCtrl.GetNextSiblingItem(item1);
+				strType = treeCtrl.GetItemText(item1);
+
+			}
+		
+			userAddDia.listUser.GetNext(pos);
+			
+		}
+	}
 }

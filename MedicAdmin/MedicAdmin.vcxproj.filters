@@ -57,6 +57,12 @@
     <ClInclude Include="UserDelete.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UserAdd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MedicAdmin.cpp">
@@ -90,6 +96,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="UserDelete.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserAdd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

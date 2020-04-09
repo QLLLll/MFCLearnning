@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_database", "13_database\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MedicAdmin", "MedicAdmin\MedicAdmin.vcxproj", "{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCSendEmail", "MFCSendEmail\MFCSendEmail.vcxproj", "{582D6090-18AB-42CC-B2BA-C5C01991A349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}.Release|x64.Build.0 = Release|x64
 		{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}.Release|x86.ActiveCfg = Release|Win32
 		{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}.Release|x86.Build.0 = Release|Win32
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Debug|x64.ActiveCfg = Debug|x64
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Debug|x64.Build.0 = Debug|x64
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Debug|x86.ActiveCfg = Debug|Win32
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Debug|x86.Build.0 = Debug|Win32
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x64.ActiveCfg = Release|x64
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x64.Build.0 = Release|x64
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x86.ActiveCfg = Release|Win32
+		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

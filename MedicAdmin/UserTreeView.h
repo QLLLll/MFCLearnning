@@ -26,6 +26,8 @@ public:
 	virtual void OnInitialUpdate();
 private:
 	CImageList imageList;
+public:
+	afx_msg void OnUserAdd();
 };
 
 
