@@ -6,14 +6,13 @@
 #include "MFCSendEmail.h"
 #include "MFCSendEmailDlg.h"
 #include "afxdialogex.h"
-#include"blat_32\blatdll.h"
-
+#include"blat32/blatdll.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-#pragma  comment(lib,"blat_32\blat.dll")
-#pragma  comment(lib,"blat_32\blat.exe")
+//extern __declspec(dllimport) int APIENTRY Send(LPCTSTR sCmd);
+#pragma  comment(lib,"blat")
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
 class CAboutDlg : public CDialogEx
@@ -161,7 +160,31 @@ void CMFCSendEmailDlg::OnBnClickedOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CDialogEx::OnOK();
-	CString cmd = TEXT("-install smtp.qq.com 576484879@qq.com");
+	//CString cmd = TEXT("-install smtp.qq.com 576484879@qq.com");
 	
+	typedef int(__stdcall*pSend)(LPCSTR sCmd);
+	HINSTANCE hdll;
+	pSend mySend;
+	hdll = LoadLibrary(TEXT("blat32/blat.dll"));
+	mySend = (pSend)GetProcAddress(hdll, "Send");
+	//int x = mySend(cmd);
+	
+	CString yzm = TEXT("验证码：6666");
 
+	CString cmd2;// = TEXT("-to kwjf11@sina.com -subject 更改密码 -body '%s' -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8");
+	cmd2.Format(TEXT("-to kwjf11@sina.com -subject 更改密码 -body '%s' -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8"),yzm);
+	wchar_t *sBuf = cmd2.AllocSysString();
+	DWORD dBufSize = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, NULL, 0, NULL, FALSE);
+
+	//分配目标缓存
+	char *dBuf = new char[dBufSize];
+	memset(dBuf, 0, dBufSize);
+
+	//转换
+	int nRet = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, dBuf, dBufSize, NULL, FALSE);
+
+	
+	int x = mySend(dBuf);
+	//Send(cmd);
+	//-to kwjf11@sina.com - subject 更改密码 - body 验证码：6666 - sig LLLLL - ps psps
 }
