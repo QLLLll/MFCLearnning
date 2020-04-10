@@ -375,7 +375,6 @@ void CUserTreeView::OnUserQuery()
 		CTreeCtrl & treeCtrl = GetTreeCtrl();
 
 		HTREEITEM node;
-		HTREEITEM child;
 		HTREEITEM nextNode;
 
 		node = treeCtrl.GetRootItem();

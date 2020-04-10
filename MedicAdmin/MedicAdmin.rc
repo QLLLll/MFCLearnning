@@ -110,7 +110,7 @@ END
 IDR_MENU1 MENU
 BEGIN
     MENUITEM "查询",                          ID_32771
-    MENUITEM "药品管理",                        0
+    MENUITEM "药品管理",                        ID_32779
     POPUP "系统管理"
     BEGIN
         MENUITEM "更改密码",                        ID_32773
