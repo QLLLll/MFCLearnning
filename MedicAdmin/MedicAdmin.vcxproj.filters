@@ -48,9 +48,6 @@
     <ClInclude Include="MedicSet.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UserSet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="UserLogin.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -61,6 +58,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UserA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PwdChange.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,9 +95,6 @@
     <ClCompile Include="MedicSet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UserSet.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="UserLogin.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -99,6 +102,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="UserAdd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PwdChange.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserQuery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

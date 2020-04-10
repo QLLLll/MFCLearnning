@@ -42,6 +42,8 @@ protected:
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 public:
 	afx_msg void On32776();
+	afx_msg void On32774();
+	afx_msg void OnExit();
 };
 
 

@@ -4,6 +4,10 @@
 // CUserTreeView йсм╪
 #include"MedicAdminDoc.h"
 #include"UserSet.h"
+#include<map>
+#include<vector>
+#include"UserA.h"
+using namespace std;
 class CUserTreeView : public CTreeView
 {
 	DECLARE_DYNCREATE(CUserTreeView)
@@ -26,8 +30,14 @@ public:
 	virtual void OnInitialUpdate();
 private:
 	CImageList imageList;
+	vector<map<CString, vector<CUserA>>> m_vecTreeList;
 public:
 	afx_msg void OnUserAdd();
+	afx_msg void OnPwdChange();
+private:
+	vector<CString> m_vecRoots;
+public:
+	afx_msg void OnUserQuery();
 };
 
 

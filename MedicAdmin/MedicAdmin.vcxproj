@@ -75,6 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>D:\C++AutocadCode\MFCLLLearnningRRRR\MedicAdmin\blat32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -199,6 +200,7 @@
     <ClInclude Include="MedicAdminView.h" />
     <ClInclude Include="MedicListView.h" />
     <ClInclude Include="MedicSet.h" />
+    <ClInclude Include="PwdChange.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -206,6 +208,7 @@
     <ClInclude Include="UserAdd.h" />
     <ClInclude Include="UserDelete.h" />
     <ClInclude Include="UserLogin.h" />
+    <ClInclude Include="UserQuery.h" />
     <ClInclude Include="UserSet.h" />
     <ClInclude Include="UserTreeView.h" />
   </ItemGroup>
@@ -216,6 +219,7 @@
     <ClCompile Include="MedicAdminView.cpp" />
     <ClCompile Include="MedicListView.cpp" />
     <ClCompile Include="MedicSet.cpp" />
+    <ClCompile Include="PwdChange.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -225,6 +229,7 @@
     <ClCompile Include="UserAdd.cpp" />
     <ClCompile Include="UserDelete.cpp" />
     <ClCompile Include="UserLogin.cpp" />
+    <ClCompile Include="UserQuery.cpp" />
     <ClCompile Include="UserSet.cpp" />
     <ClCompile Include="UserTreeView.cpp" />
   </ItemGroup>

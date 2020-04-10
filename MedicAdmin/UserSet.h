@@ -2,7 +2,7 @@
 
 #pragma once
 
-// 代码生成在 2020年4月8日, 15:20
+// 代码生成在 2020年4月10日, 9:48
 
 class CUserSet : public CRecordset
 {
@@ -24,6 +24,7 @@ public:
 	CStringA	m_password;
 	CStringA	m_name;
 	CStringA	m_classification;
+	CStringA	m_email;
 
 // 重写
 	// 向导生成的虚函数重写

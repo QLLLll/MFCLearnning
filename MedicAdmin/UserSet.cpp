@@ -4,7 +4,7 @@
 
 // CUserSet 实现
 
-// 代码生成在 2020年4月8日, 15:20
+// 代码生成在 2020年4月10日, 9:48
 
 #include "stdafx.h"
 #include "UserSet.h"
@@ -17,7 +17,8 @@ CUserSet::CUserSet(CDatabase* pdb)
 	m_password = "";
 	m_name = "";
 	m_classification = "";
-	m_nFields = 4;
+	m_email = "";//email
+	m_nFields = 5;
 	m_nDefaultType = snapshot;
 }
 //#error 安全问题: 连接字符串可能包含密码。
@@ -28,8 +29,6 @@ CUserSet::CUserSet(CDatabase* pdb)
 CString CUserSet::GetDefaultConnect()
 {
 	return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=COMP-02-2433\\SQLEXPRESS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
-	//  return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=DESKTOP-I7LA8BS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
-
 }
 
 CString CUserSet::GetDefaultSQL()
@@ -47,6 +46,7 @@ void CUserSet::DoFieldExchange(CFieldExchange* pFX)
 	RFX_Text(pFX, _T("[password]"), m_password);
 	RFX_Text(pFX, _T("[name]"), m_name);
 	RFX_Text(pFX, _T("[classification]"), m_classification);
+	RFX_Text(pFX, _T("[email]"), m_email);
 
 }
 /////////////////////////////////////////////////////////////////////////////

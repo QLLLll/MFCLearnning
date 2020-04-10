@@ -20,6 +20,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_32776, &CMainFrame::On32776)
+	ON_COMMAND(ID_32774, &CMainFrame::On32774)
+	ON_COMMAND(ID_32778, &CMainFrame::OnExit)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -122,4 +124,31 @@ void CMainFrame::On32776()
 	CUserDelete deleteDialog;
 
 	deleteDialog.DoModal();
+}
+
+//更换用户
+void CMainFrame::On32774()
+{
+	// TODO: 在此添加命令处理程序代码
+	//程序重启
+	wchar_t pBuf[MAX_PATH];
+	//获取应用程序完全路径，比 GetCurrentDirectory 好用多了
+	GetModuleFileName(NULL, pBuf, MAX_PATH);
+
+	STARTUPINFO startupinfo;
+	PROCESS_INFORMATION proc_info;
+	memset(&startupinfo, 0, sizeof(STARTUPINFO));
+	startupinfo.cb = sizeof(STARTUPINFO);
+	// 最重要的地方
+	::CreateProcess(pBuf, NULL, NULL, NULL, FALSE,
+		NORMAL_PRIORITY_CLASS, NULL, NULL, &startupinfo, &proc_info);
+
+	PostMessage(WM_QUIT);
+}
+
+//退出系统
+void CMainFrame::OnExit()
+{
+	// TODO: 在此添加命令处理程序代码
+	PostMessage(WM_QUIT);
 }

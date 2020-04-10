@@ -75,7 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>E:\C++学习代码\MFCLearnning\MFCSendEmail\blat32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\C++AutocadCode\MFCLLLearnningRRRR\MFCSendEmail\blat32;E:\C++学习代码\MFCLearnning\MFCSendEmail\blat32;$(LibraryPath)</LibraryPath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
