@@ -33,8 +33,8 @@ CMedicSet::CMedicSet(CDatabase* pdb)
 // 储为其他格式或使用其他的用户身份验证。
 CString CMedicSet::GetDefaultConnect()
 {
-	return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=COMP-02-2433\\SQLEXPRESS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
-	//return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=DESKTOP-I7LA8BS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
+	//return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=COMP-02-2433\\SQLEXPRESS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
+	return _T("Description=MEdicODBC;DRIVER=SQL Server;SERVER=DESKTOP-I7LA8BS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433;DATABASE=medicine");
 
 }
 

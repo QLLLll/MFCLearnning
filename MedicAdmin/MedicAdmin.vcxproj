@@ -75,7 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>D:\C++AutocadCode\MFCLLLearnningRRRR\MedicAdmin\blat32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>E:\C++学习代码\MFCLearnning\MedicAdmin\blat32;D:\C++AutocadCode\MFCLLLearnningRRRR\MedicAdmin\blat32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>

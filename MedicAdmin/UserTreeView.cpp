@@ -376,20 +376,25 @@ void CUserTreeView::OnUserQuery()
 
 		HTREEITEM node;
 		HTREEITEM nextNode;
-
+		
+		//获取第一个根节点
 		node = treeCtrl.GetRootItem();
 		nextNode = node;
-
+		
+		/*
+		*获取每个根节点的所有下层的第一个节点
+		*/
 		vector<HTREEITEM>vecItem;
 
 		while (nextNode != NULL) {
 
+			//获取所有下层节点中的第一个节点
 			while (node != NULL) {
 
 				vecItem.push_back(node);
 				node = treeCtrl.GetChildItem(node);
 			}
-
+			//从最末端节点开始，获取它的所有兄弟节点，然后退回到上一层重复这个操作
 			for (int q = (int)vecItem.size() - 1; q > -1; q--)
 			{
 
@@ -414,10 +419,10 @@ void CUserTreeView::OnUserQuery()
 
 				}
 			}
-
+			//每完成一层就清空
 			vecItem.clear();
 
-			
+			//顶层根节点的兄弟节点
 			nextNode = treeCtrl.GetNextItem(nextNode, TVGN_NEXT);
 			node = nextNode;
 		}

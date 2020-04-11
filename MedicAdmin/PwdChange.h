@@ -4,6 +4,7 @@
 // CPwdChange ¶Ô»°¿ò
 #include"UserSet.h"
 #include "afxwin.h"
+#include"blat32/blatdll.h"
 #pragma  comment(lib,"blat")
 class CPwdChange : public CDialogEx
 {

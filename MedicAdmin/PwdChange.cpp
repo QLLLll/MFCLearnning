@@ -75,23 +75,20 @@ void CPwdChange::OnBnClickedButton4()
 	pSend mySend;
 	hdll = LoadLibrary(TEXT("blat32/blat.dll"));
 	mySend = (pSend)GetProcAddress(hdll, "Send");
-	//int x = mySend(cmd);
-
+	
 	CString yzm;
 	yzm.Format(TEXT("验证码:%d"),m_uYzm);
 
 	CString cmd2;// = TEXT("-to kwjf11@sina.com -subject 更改密码 -body '%s' -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8");
 	cmd2.Format(TEXT("-to kwjf11@sina.com -subject 更改密码 -body %s -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8"), yzm);
-	wchar_t *sBuf = cmd2.AllocSysString();
-	DWORD dBufSize = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, NULL, 0, NULL, FALSE);
+		wchar_t *sBuf = cmd2.AllocSysString();
+		DWORD dBufSize = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, NULL, 0, NULL, FALSE);
+		//分配目标缓存
+		char *dBuf = new char[dBufSize];
+		memset(dBuf, 0, dBufSize);
 
-	//分配目标缓存
-	char *dBuf = new char[dBufSize];
-	memset(dBuf, 0, dBufSize);
-
-	//转换
-	int nRet = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, dBuf, dBufSize, NULL, FALSE);
-
+		//转换
+		int nRet = WideCharToMultiByte(CP_OEMCP, 0, sBuf, -1, dBuf, dBufSize, NULL, FALSE);
 
 	int x = mySend(dBuf);
 

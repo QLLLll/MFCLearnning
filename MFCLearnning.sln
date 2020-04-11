@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "第一个MFC项目", "第一个MFC项目\第一个MFC项目.vcxproj", "{CDE8C863-21FB-4A15-999D-5482750F729F}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MedicAdmin", "MedicAdmin\MedicAdmin.vcxproj", "{BDD94D3F-0B88-4389-B9D6-4E12F64D886B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCSendEmail", "MFCSendEmail\MFCSendEmail.vcxproj", "{582D6090-18AB-42CC-B2BA-C5C01991A349}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ForTreeCtrl", "ForTreeCtrl\ForTreeCtrl.vcxproj", "{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC_快捷键", "MFC_快捷键\MFC_快捷键.vcxproj", "{F86CE518-0550-41A8-97ED-41096578422A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +135,22 @@ Global
 		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x64.Build.0 = Release|x64
 		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x86.ActiveCfg = Release|Win32
 		{582D6090-18AB-42CC-B2BA-C5C01991A349}.Release|x86.Build.0 = Release|Win32
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Debug|x64.ActiveCfg = Debug|x64
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Debug|x64.Build.0 = Debug|x64
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Debug|x86.ActiveCfg = Debug|Win32
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Debug|x86.Build.0 = Debug|Win32
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Release|x64.ActiveCfg = Release|x64
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Release|x64.Build.0 = Release|x64
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Release|x86.ActiveCfg = Release|Win32
+		{94C8EC02-BBAD-4ED3-B6A0-B968DEB0FC79}.Release|x86.Build.0 = Release|Win32
+		{F86CE518-0550-41A8-97ED-41096578422A}.Debug|x64.ActiveCfg = Debug|x64
+		{F86CE518-0550-41A8-97ED-41096578422A}.Debug|x64.Build.0 = Debug|x64
+		{F86CE518-0550-41A8-97ED-41096578422A}.Debug|x86.ActiveCfg = Debug|Win32
+		{F86CE518-0550-41A8-97ED-41096578422A}.Debug|x86.Build.0 = Debug|Win32
+		{F86CE518-0550-41A8-97ED-41096578422A}.Release|x64.ActiveCfg = Release|x64
+		{F86CE518-0550-41A8-97ED-41096578422A}.Release|x64.Build.0 = Release|x64
+		{F86CE518-0550-41A8-97ED-41096578422A}.Release|x86.ActiveCfg = Release|Win32
+		{F86CE518-0550-41A8-97ED-41096578422A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
