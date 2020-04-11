@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TreeNode>
+  <Node>
+  <node>医生</node>
+  <node>管理员</node>
+  <node>售药员</node>
+  </Node>
+</TreeNode>

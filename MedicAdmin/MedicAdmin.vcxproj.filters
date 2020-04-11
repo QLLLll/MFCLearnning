@@ -69,6 +69,9 @@
     <ClInclude Include="UserQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="XmlHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MedicAdmin.cpp">
@@ -113,6 +116,9 @@
     <ClCompile Include="UserQuery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="XmlHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MedicAdmin.rc">
@@ -143,5 +149,8 @@
     <Image Include="res\salesman.BMP">
       <Filter>资源文件</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="LoadMenu.xml" />
   </ItemGroup>
 </Project>

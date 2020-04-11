@@ -10,6 +10,7 @@
 #include"PwdChange.h"
 #include<iterator>
 #include"UserQuery.h"
+#include"XmlHelper.h"
 
 
 extern CString G_LoginName;
@@ -89,12 +90,25 @@ void CUserTreeView::OnInitialUpdate()
 		userSet->Open(CRecordset::dynaset);
 	}
 	//TODO:改成读xml生成treeView的根节点
+#if 0
+	//很慢
+	CXmlHelper xmlHelper;
+
+	MSXML2::IXMLDOMNodeListPtr listNode;
+	xmlHelper.ReadXml(_T("LoadMenu.xml"), listNode);
+
+	vector<CString>root;
+	xmlHelper.ReadNode(listNode, root1);
+	int n = root->size();
+#endif 
+
+#if 1
 	CString root[3] = {
 		TEXT("医生"),TEXT("管理员"),TEXT("售药员")
 	};
 
 	int n = sizeof(root) / sizeof(root[0]);
-
+#endif 
 	for (int i = 0; i < n; i++)
 	{
 		map<CString, vector<CUserA>> mapVec;

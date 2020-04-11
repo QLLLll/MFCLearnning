@@ -211,6 +211,7 @@
     <ClInclude Include="UserQuery.h" />
     <ClInclude Include="UserSet.h" />
     <ClInclude Include="UserTreeView.h" />
+    <ClInclude Include="XmlHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp" />
@@ -232,6 +233,7 @@
     <ClCompile Include="UserQuery.cpp" />
     <ClCompile Include="UserSet.cpp" />
     <ClCompile Include="UserTreeView.cpp" />
+    <ClCompile Include="XmlHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MedicAdmin.rc" />
@@ -246,6 +248,9 @@
     <Image Include="res\MedicAdminDoc.ico" />
     <Image Include="res\normal.BMP" />
     <Image Include="res\salesman.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="LoadMenu.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
