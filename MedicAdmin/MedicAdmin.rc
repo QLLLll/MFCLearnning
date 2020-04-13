@@ -69,7 +69,9 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\MedicAdmin.ico"
+
 IDR_MedicAdminTYPE      ICON                    "res\\MedicAdminDoc.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -122,7 +124,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "ÍË³öÏµÍ³",                        ID_32778
     END
-    MENUITEM "°ïÖú(H)",                       0
+    MENUITEM "°ïÖú(H)",                       ID_32780
 END
 
 
@@ -396,9 +398,13 @@ END
 //
 
 IDB_BITMAP_DOCTOR       BITMAP                  "res\\doctor.BMP"
+
 IDB_BITMAP_MANAGER      BITMAP                  "res\\manager.BMP"
+
 IDB_BITMAP_NORMAL       BITMAP                  "res\\normal.BMP"
+
 IDB_BITMAP_SAL          BITMAP                  "res\\salesman.BMP"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
