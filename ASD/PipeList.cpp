@@ -17,6 +17,7 @@ void PipeList::logic(int &goals,Bird &bird,int &game_state){//逻辑函数
 		Pipe temp=pipe.GetHead();
 		pipe.RemoveHead();
 		temp.logic();
+		//管道移动到64位置
 		if(temp.pos_x==64){
 			goals+=1;
 			mciSendString(_T("close mymusic"), NULL, 0, NULL);//先关再开，注意顺序！！！
@@ -27,7 +28,7 @@ void PipeList::logic(int &goals,Bird &bird,int &game_state){//逻辑函数
 
 		//碰撞检测
 		if(23+bird.y+48-$d>400){//与地面
-			bird.y=400-230-48+$d;
+			bird.y=400-230-48+$d;//让鸟处于地面
 			bird.stop();
 			game_state=2;
 		}else if(!(65+48-$d < temp.pos_x || temp.pos_x+52<65+$d)){//与柱子

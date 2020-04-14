@@ -74,5 +74,32 @@
     <Image Include="res\atlas.bmp">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="res\a00.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a01.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a02.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a10.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a11.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a12.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a20.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a21.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\a22.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

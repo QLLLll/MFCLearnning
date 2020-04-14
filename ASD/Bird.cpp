@@ -39,7 +39,7 @@ void Bird::recover(){
 void Bird::jump(){
 	v=bird_v0;
 	a=bird_a0;
-	dis_state=2;
+	dis_state=2;//每次飞120毫秒
 	state=state_up;
 	PlaySound(MAKEINTRESOURCE(IDR_WAVE_FLY),AfxGetResourceHandle(),SND_RESOURCE|SND_ASYNC);
 }
@@ -57,7 +57,7 @@ void Bird::logic(int ID,int &game_state){
 		case state_up:
 			v+=a;
 			y+=v;
-			dis_state--;
+			dis_state--;//120毫秒后转向
 			if(dis_state==0){
 				state=state_turn;
 				Time=0;
@@ -71,11 +71,12 @@ void Bird::logic(int ID,int &game_state){
 				stop();
 				game_state=3;
 			}
-			dis_state++;
+			dis_state++;//资源图片的剪切位置+个鸟的高度
 			if(dis_state==1 && Time<=0.4){
 				Time+=0.1;
 				dis_state=0;
 			}
+			//5次
 			if(dis_state==6){
 				state=state_down;
 			}
@@ -84,7 +85,7 @@ void Bird::logic(int ID,int &game_state){
 			v+=a;
 			y+=v;
 			if(delay==0 && 230+y+48-$d>=400){
-				y=400-230-48+$d;
+				y=400-230-48+$d;//鸟位于地面
 				stop();
 				PlaySound(MAKEINTRESOURCE(IDR_WAVE_HIT),AfxGetResourceHandle(),SND_RESOURCE|SND_ASYNC);
 				state=state_delay;
@@ -119,7 +120,7 @@ void Bird::logic(int ID,int &game_state){
 }
 void Bird::paint(CDC* To,CDC* From){
 	//游戏开始前，鸟上下动
-	From->SelectObject(&bird[bird_state][fly_state]);
-	To->TransparentBlt(65,230+y,48,48,From,9.936,9.936+dis_state*48,48,48,RGB(0,0,0));	
+		From->SelectObject(&bird[bird_state][fly_state]);
+		To->TransparentBlt(65,230+y,48,48,From,9.936,9.936+dis_state*48,48,48,RGB(0,0,0));	
 }
 

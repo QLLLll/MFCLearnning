@@ -216,6 +216,15 @@
     <None Include="res\LearningFlyBird.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\a00.bmp" />
+    <Image Include="res\a01.bmp" />
+    <Image Include="res\a02.bmp" />
+    <Image Include="res\a10.bmp" />
+    <Image Include="res\a11.bmp" />
+    <Image Include="res\a12.bmp" />
+    <Image Include="res\a20.bmp" />
+    <Image Include="res\a21.bmp" />
+    <Image Include="res\a22.bmp" />
     <Image Include="res\atlas.bmp" />
     <Image Include="res\LearningFlyBird.ico" />
   </ItemGroup>

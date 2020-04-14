@@ -54,6 +54,9 @@ protected:
 
 public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+public:
+	CBitmap bird[3][3];
+
 };
 
 

@@ -158,12 +158,14 @@ void CMainWindow::draw(){
 			pic.text_ready.TBlt(50,140,&m_cacheDC,&m_bgcDC);//ready图标
 			pic.tutorial.TBlt(85,220,&m_cacheDC,&m_bgcDC);//指示
 		}
-	}else if(game_state==end_game || game_state==start_game){
+	}
+	else if(game_state==end_game || game_state==start_game){
 		if(last_state==0){
 			pic.text_game_over.TBlt(50,105,&m_cacheDC,&m_bgcDC);//game_over图标
 			last_state=1;
 			PlaySound(MAKEINTRESOURCE(IDR_WAVE_PANEL),AfxGetResourceHandle(),SND_RESOURCE|SND_ASYNC);
-		}else if(last_state>=1){
+		}
+		else if(last_state>=1){
 			pic.text_game_over.TBlt(50,115,&m_cacheDC,&m_bgcDC);//game_over图标(0->1实现动画效果）
 			if(last_state==10){
 				panel.draw(pic,&m_cacheDC,&m_bgcDC);//贴上计分板
