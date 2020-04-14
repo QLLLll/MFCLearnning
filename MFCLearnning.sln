@@ -33,6 +33,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC_快捷键", "MFC_快捷
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTTI_运行时类型识别", "RTTI_运行时类型识别\RTTI_运行时类型识别.vcxproj", "{A141754A-1B9B-479C-A793-D93DD5664E00}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LearningFlyBird", "LearningFlyBird\LearningFlyBird.vcxproj", "{6B4CD125-41E2-43EA-AAB1-AE8568322518}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASD", "ASD\ASD.vcxproj", "{ABCC2380-803C-4EA3-A17C-6A2003EC307C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +165,20 @@ Global
 		{A141754A-1B9B-479C-A793-D93DD5664E00}.Release|x64.Build.0 = Release|x64
 		{A141754A-1B9B-479C-A793-D93DD5664E00}.Release|x86.ActiveCfg = Release|Win32
 		{A141754A-1B9B-479C-A793-D93DD5664E00}.Release|x86.Build.0 = Release|Win32
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Debug|x64.ActiveCfg = Debug|x64
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Debug|x64.Build.0 = Debug|x64
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Debug|x86.ActiveCfg = Debug|Win32
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Debug|x86.Build.0 = Debug|Win32
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Release|x64.ActiveCfg = Release|x64
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Release|x64.Build.0 = Release|x64
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Release|x86.ActiveCfg = Release|Win32
+		{6B4CD125-41E2-43EA-AAB1-AE8568322518}.Release|x86.Build.0 = Release|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Debug|x64.ActiveCfg = Debug|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Debug|x86.ActiveCfg = Debug|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Debug|x86.Build.0 = Debug|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Release|x64.ActiveCfg = Release|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Release|x86.ActiveCfg = Release|Win32
+		{ABCC2380-803C-4EA3-A17C-6A2003EC307C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

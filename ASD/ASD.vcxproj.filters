@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LiZi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Pic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Land.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LiZi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Pic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="a00.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a01.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a02.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="atlas.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a10.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a11.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a12.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a20.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a21.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="a22.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="icon.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ASD.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="die.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="fly.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="hit.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="panel.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="point.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="html1.htm" />
+  </ItemGroup>
+</Project>
