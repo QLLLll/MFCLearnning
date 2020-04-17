@@ -27,7 +27,11 @@ END_MESSAGE_MAP()
 
 CMainFrame::CMainFrame()
 {
-
+	for (int i = 0; i < 1; i++)
+	{
+		Pipe temp;
+		pipes.AddHead(temp);
+	}
 }
 
 CMainFrame::~CMainFrame()
@@ -158,17 +162,39 @@ void CMainFrame::OnTimer(UINT_PTR nID)
 
 
 
-	pic.text_ready.TBlt(50, 140, &m_cacheDC, &m_bgcDC);//ready图标
-	pic.tutorial.TBlt(85, 220, &m_cacheDC, &m_bgcDC);//指示pic.font[this_wei].TBlt(first_pos+wei*25,60,&m_cacheDC,&m_bgcDC);//分数
+	//pic.text_ready.TBlt(50, 140, &m_cacheDC, &m_bgcDC);//ready图标
+	//pic.tutorial.TBlt(85, 220, &m_cacheDC, &m_bgcDC);//指示pic.font[this_wei].TBlt(first_pos+wei*25,60,&m_cacheDC,&m_bgcDC);//分数
 
 
 
-	pic.text_ready.TBlt(50, 140, &m_cacheDC, &m_bgcDC);//ready图标
-	pic.tutorial.TBlt(85, 220, &m_cacheDC, &m_bgcDC);//指示
+	//pic.text_ready.TBlt(50, 140, &m_cacheDC, &m_bgcDC);//ready图标
+	//pic.tutorial.TBlt(85, 220, &m_cacheDC, &m_bgcDC);//指示
+
+
+	piepeMove(pic, &m_cacheDC, &m_bgcDC);
+
 
 	m_cacheDC.SelectObject(&m_tempBitmap);
 	cDC->BitBlt(0, 0, m_client.Width(), m_client.Height(), &m_cacheDC, 0, 0, SRCCOPY);
 
 	ReleaseDC(cDC);
 	CFrameWnd::OnTimer(nID);
+}
+
+void CMainFrame::piepeMove(Pic &All, CDC* To, CDC* From) {//绘制函数
+	int count = pipes.GetCount();
+	for (int i = 0; i<count; i++) {
+		Pipe temp = pipes.GetHead();
+		pipes.RemoveHead();
+		temp.logic();
+		
+
+		if (temp.pos_x < -60) {
+			temp.pos_x = 300;
+		}
+
+		pipes.AddTail(temp);
+		All.pipe_down.TBlt(temp.pos_x, temp.pos_y, To, From);//上柱子
+		All.pipe_up.TBlt(temp.pos_x, temp.pos_y + 420, To, From);//下柱子
+	}
 }

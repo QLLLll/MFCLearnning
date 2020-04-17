@@ -193,6 +193,7 @@
     <ClInclude Include="LearningFlyBird.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Pic.h" />
+    <ClInclude Include="Pipe.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

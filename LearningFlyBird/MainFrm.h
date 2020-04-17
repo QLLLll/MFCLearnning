@@ -7,6 +7,7 @@
 #include <afxwin.h>
 #include"Pic.h"
 #include "ChildView.h"
+#include"Pipe.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -28,6 +29,9 @@ public:
 	CDC m_bgcDC, m_tempcDC;
 
 	Pic pic;//ËùÓÐÍ¼Æ¬
+	CList<Pipe, Pipe&>pipes;
+
+
 // ²Ù×÷
 public:
 
@@ -54,6 +58,7 @@ protected:
 
 public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	void CMainFrame::piepeMove(Pic &All, CDC* To, CDC* From);
 public:
 	CBitmap bird[3][3];
 

@@ -18,7 +18,7 @@ private:
 		}
 		void logic(){pos_x+=speed;}
 		void stop() {speed=0;}
-		void start(){speed=-4;}
+		//void start(){speed=-4;}
 	};//内部类柱子
 public:
 	CList<Pipe, Pipe&> pipe;//柱子

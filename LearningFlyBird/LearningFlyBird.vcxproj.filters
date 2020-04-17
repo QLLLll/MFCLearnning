@@ -39,6 +39,9 @@
     <ClInclude Include="Pic.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Pipe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LearningFlyBird.cpp">
