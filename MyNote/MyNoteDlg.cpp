@@ -6,7 +6,8 @@
 #include "MyNote.h"
 #include "MyNoteDlg.h"
 #include "afxdialogex.h"
-
+#include<string>
+using namespace std;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -32,6 +33,7 @@ BEGIN_MESSAGE_MAP(CMyNoteDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZE()
 	ON_COMMAND(ID_32772, &CMyNoteDlg::OnOpenFile)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 
@@ -128,6 +130,56 @@ void CMyNoteDlg::OnOpenFile()
 		OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
 		_T("txt Files (*.txt)|*.txt|cs Files (*.cs)|*.cs|Data Files (*.ini)|*.ini|All Files (*.*)|*.*||"),NULL);
 
-	fDiaLog.DoModal();
+	//CEdit *edit = (CEdit*)GetDlgItem(IDC_EDIT1);
 
+	if (fDiaLog.DoModal() == IDOK) {
+		CString pName = fDiaLog.GetPathName();
+
+		CFile file;
+		if (file.Open(pName, CFile::modeReadWrite, NULL)) {
+
+
+			char *pBuf;
+			char *copy;
+
+			pBuf = new char[1024];
+			int n = 0;
+			CString  str;
+			DWORD len = file.GetLength();
+			int max = 0;
+			while ((n=file.Read(pBuf,1024))>0) {
+				max += n;
+				
+
+
+				copy = new  char[n+2];
+				//strcpy_s(copy, n, pBuf);
+				strncpy_s(copy,n+1, pBuf, n);
+					//copy[n+1] = '/0';
+				
+
+				CString str1 = CA2W(pBuf, CP_UTF8); //Utf8格式文件用此方法
+				delete[] copy;
+				str += str1;
+				if (max >= len) {
+					break;
+				}
+			}
+			SetDlgItemText(IDC_EDIT1, str);
+			file.Close();
+		}
+		else {
+			MessageBox(_T("打开文件失败！"));
+		}
+
+	}
+
+}
+
+
+void CMyNoteDlg::OnClose()
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	exit(1);
+	CDialogEx::OnClose();
 }
