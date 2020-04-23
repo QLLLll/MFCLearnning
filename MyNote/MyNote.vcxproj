@@ -189,6 +189,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DialogFind.h" />
     <ClInclude Include="MyNote.h" />
     <ClInclude Include="MyNoteDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -196,6 +197,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DialogFind.cpp" />
     <ClCompile Include="MyNote.cpp" />
     <ClCompile Include="MyNoteDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
