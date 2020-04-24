@@ -59,4 +59,6 @@ public:
 	afx_msg void OnInsertDate();
 private:
 	BOOL m_findOpen;
+public:
+	afx_msg void OnCopyOther();
 };

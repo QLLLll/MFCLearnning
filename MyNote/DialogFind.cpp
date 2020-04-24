@@ -19,6 +19,7 @@ CDialogFind::CDialogFind(CWnd* pParent /*=NULL*/)
 	, m_isFindNext(false)
 	, m_isLoop(false)
 	, m_totalStr(_T(""))
+	, m_hasFind(false)
 {
 
 }
@@ -84,9 +85,9 @@ void CDialogFind::PreInitDialog()
 	CWnd *btn = GetDlgItem(IDC_BUTTON1);
 	btn->EnableWindow(FALSE);
 	m_findIndex = 0;
-	m_isIgnoreCase = false;	
-	 m_isLoop = false;
-	 m_totalStr = _T("");
+	m_isIgnoreCase = true;
+	m_isLoop = false;
+	m_totalStr = _T("");
 	CDialogEx::PreInitDialog();
 }
 
@@ -133,45 +134,204 @@ void CDialogFind::OnBnClickedButton1()
 	if (m_totalStr.IsEmpty()) {
 		return;
 	}
-	WPARAM a = 8;
-	LPARAM b = 9;
-	HWND hWnd = AfxGetApp()->GetMainWnd()->GetSafeHwnd();
 	
+	HWND hWnd = AfxGetApp()->GetMainWnd()->GetSafeHwnd();
+
 	CString str;
 	GetDlgItemText(IDC_EDIT1, str);
-	
-	if (m_isFindNext) {
+	CString str1 = str;
+	CString strLower = str1.MakeLower();
+	CString strUpper = str1.MakeUpper();
+	int n = -1;
+	CString s;
 
+	s.Format(_T("未找到\"%s\""), str);
+
+	if (m_isFindNext) {
 
 		if (!m_isIgnoreCase)
 		{
-			int n = m_totalStr.Find(str, m_findIndex);
-			if ((n>=0||m_findIndex >= m_totalStr.GetLength())||(n==-1&&m_findIndex>0)) {
-				if (m_isLoop) {
-					
+			n = m_totalStr.Find(str, m_findIndex);
+			//循环查找
+			if (m_isLoop) {
+				if ((n >= 0 || m_findIndex >= m_totalStr.GetLength()) || (n == -1 && m_findIndex > 0)) {
+
+					if (n == -1 && m_findIndex > 0)
+					{
 						m_findIndex = 0;
-						n = m_totalStr.Find(str, m_findIndex);
-						if (n != -1)
-							::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
+					}
+
+					n = m_totalStr.Find(str, m_findIndex);
+					if (n != -1)
+					{
+						::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
 						m_findIndex = n + str.GetLength();
-					
+						m_hasFind = true;
+					}
 				}
-					else {
-						if (m_findIndex >= m_totalStr.GetLength()) {
-							m_findIndex = m_totalStr.GetLength();
-						}
-						n = m_totalStr.Find(str, m_findIndex);
-						if (n != -1)
-						{
-							::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
-							m_findIndex = n + str.GetLength();
+				else {
+					MessageBox(s);
+				}
+
+			}//不循环
+			else {
+				if (m_findIndex >= m_totalStr.GetLength()) {
+					m_findIndex = m_totalStr.GetLength();
+				}
+				n = m_totalStr.Find(str, m_findIndex);
+				if (n != -1)
+				{
+					::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
+					m_findIndex = n + str.GetLength();
+					m_hasFind = true;
+				}
+				else {
+
+					MessageBox(s);
+				}
+			}
+		}
+		else {
+			while (true) {
+				int j = -1, u = -1;
+				j = m_totalStr.Find(strLower.Left(1), m_findIndex);
+				u = m_totalStr.Find(strUpper.Left(1), m_findIndex);
+
+				n = (j > u ? j : u);
+
+				if (n > -1 || (n == -1 && m_findIndex > 0)) {
+					CString compStr;
+					if (n > -1)
+						compStr = m_totalStr.Mid(n, str.GetLength());
+
+					if (m_isLoop) {
+						m_findIndex = n + 1;
+						if (n == -1 && m_findIndex > 0) {
+							m_findIndex = 0;
+							if (m_hasFind) {
+								continue;
+							}
 						}
 					}
+					else {
+						if (n > -1)
+							m_findIndex = n + 1;
+					}
+					if (strLower.CompareNoCase(compStr) == 0) {
+						::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
+						m_hasFind = true;
+						break;
+					}
+					if (!m_isLoop) {
+						if (m_findIndex > 0 && n == -1) {
+
+							MessageBox(s);
+							break;
+
+						}
+					}
+					else {
+						if (m_findIndex >0 && m_hasFind == false) {
+							MessageBox(s);
+							break;
+						}
+					}
+
+				}
+				else {
+					MessageBox(s);
+					break;
+				}
 			}
 		}
 	}
+	else {
+		CString copyStr = m_totalStr;
+		if (n < -1) {
+			n = -1;
+		}
+		while (true) {
+			if (m_findIndex >=0)
+				if (m_findIndex == 0 && m_isLoop) {
+					m_findIndex = m_totalStr.GetLength();
+					copyStr = m_totalStr;
+				}
+				else {
+					copyStr = m_totalStr.Mid(0, m_findIndex);
+				}
+			else {
+				copyStr = m_totalStr;
+				m_findIndex = m_totalStr.GetLength();
+			}
+			int j = -1, u = -1;
+
+			if (m_isIgnoreCase) {
+				j = copyStr.ReverseFind(strLower[0]);
+				u = copyStr.ReverseFind(strUpper[0]);
+				n = (j > u ? j : u);
+			}
+			else {
+				n= copyStr.ReverseFind(str[0]);
+			}
 
 
+
+			if (n > -1 || (n == -1 && m_findIndex > 0)) {
+				CString compStr;
+				if (n > -1)
+					compStr = m_totalStr.Mid(n, str.GetLength());
+
+				if (m_isLoop) {
+					if (n > -1)
+						m_findIndex = n;
+					else
+						m_findIndex -= 1;
+					if (n == -1 && m_findIndex > 0) {
+						m_findIndex = 0;
+						if (m_hasFind) {
+							continue;
+						}
+					}
+				}
+				else {
+					if (n > -1)
+						m_findIndex=n;
+					else
+						m_findIndex -= 1;
+				}
+				if (m_isIgnoreCase&&strLower.CompareNoCase(compStr) == 0) {
+					::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
+					m_hasFind = true;
+					break;
+				}
+				if (!m_isIgnoreCase&&str.Compare(compStr) == 0) {
+
+					::SendMessage(hWnd, WM_FIND_EVENT, n, n + str.GetLength());
+					m_hasFind = true;
+					break;
+				}
+
+				if (!m_isLoop) {
+					if (m_findIndex >= 0 && n == -1) {
+
+						MessageBox(s);
+						break;
+
+					}
+				}
+				else {
+					if (m_findIndex == 0 && m_hasFind == false) {
+						MessageBox(s);
+						break;
+					}
+				}
+			}
+			else {
+				MessageBox(s);
+				break;
+			}
+		}
+	}
 }
 
 
@@ -185,6 +345,7 @@ void CDialogFind::OnEnChangeEdit1()
 	}
 	else {
 		btn->EnableWindow(TRUE);
+		m_hasFind = false;
 
 	}
 }

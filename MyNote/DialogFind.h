@@ -48,4 +48,6 @@ public:
 	afx_msg void OnEnChangeEdit1();
 public:
 	CString m_totalStr;
+private:
+	bool m_hasFind;
 };

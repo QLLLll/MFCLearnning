@@ -44,6 +44,7 @@ BEGIN_MESSAGE_MAP(CMyNoteDlg, CDialogEx)
 	ON_COMMAND(ID_32780, &CMyNoteDlg::OnFont)
 	ON_COMMAND(ID_32777, &CMyNoteDlg::OnInsertDate)
 	ON_MESSAGE(WM_FIND_EVENT, OnFindStr)
+	ON_COMMAND(ID_32781, &CMyNoteDlg::OnCopyOther)
 END_MESSAGE_MAP()
 
 
@@ -420,4 +421,49 @@ void CMyNoteDlg::OnInsertDate()
 	CEdit* pEdit = (CEdit*)GetDlgItem(IDC_EDIT1);
 	pEdit->ReplaceSel(str);//选中插入
 
+}
+
+
+void CMyNoteDlg::OnCopyOther()
+{
+	// TODO: Add your command handler code here
+
+	//HWND	m_qqhWnd = ::FindWindow(_T("TXGuiFoundation"), _T("QQ"));
+	HWND	padWnd = ::FindWindow(_T("Notepad"), NULL);
+	if (padWnd)
+
+	{
+
+		//获取窗口句柄
+
+		CRect rect;
+
+		::GetWindowRect(padWnd, rect);
+
+		CString str;
+
+		CPoint user_pt;
+
+		//将user_pt点定位到编辑框框内
+		user_pt.x = rect.left + 63;
+
+		user_pt.y = rect.top + 89;
+
+		//获取edit句柄句柄
+		HWND editWnd = ::WindowFromPoint(user_pt);
+		
+		//获取文字长度
+		LRESULT res = ::SendMessage(editWnd, WM_GETTEXTLENGTH, 0, 0);
+		int len = (int)res;
+		TCHAR *buf=new TCHAR[len+1];
+		
+		::SendMessage(editWnd, WM_GETTEXT, (WPARAM)res, (LPARAM)buf);
+		buf[len] = '/0';
+		SetDlgItemText(IDC_EDIT1, buf);
+			
+		delete[]buf;
+	}
+	else
+		MessageBox(_T("查找窗口失败！"));
+	
 }
