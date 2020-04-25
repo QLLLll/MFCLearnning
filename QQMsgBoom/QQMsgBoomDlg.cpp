@@ -216,7 +216,7 @@ void CQQMsgBoomDlg::OnBnClickedButton3()
 	{
 		CString source;
 		char * s = NULL;
-		HGLOBAL clipbuffer = NULL;
+		
 		for (int i = 0; i < (int)boomStr.size(); ++i)
 		{
 			
@@ -241,25 +241,15 @@ void CQQMsgBoomDlg::OnBnClickedButton3()
 			if (OpenClipboard())//打开剪切板
 			{
 				
-				 //定义一个HGLOBAL句柄变量用来指向分配的内存块
+				 
 				//TCHAR * buffer;//定义指向字符型的指针变量
 				char* buffer;
-				if (true)
-				{
-					clipbuffer = GlobalAlloc(GHND
-						, len+1);
-				}//在堆上分配可移动的内存块，程序返回一个内存句柄
-				else
-				{
-					clipbuffer=GlobalReAlloc(clipbuffer, len+1, GMEM_MOVEABLE | GMEM_ZEROINIT);
-				}
+				//定义一个HGLOBAL句柄变量用来指向分配的内存块
+				HGLOBAL clipbuffer = GlobalAlloc(GHND, len+1);
+				//在堆上分配可移动的内存块，程序返回一个内存句柄
+				
 				buffer = (char*)GlobalLock(clipbuffer);  //对分配的内存块进行加锁，将内存块句柄转化成一个指针,并将相应的引用计数器加1
-				if (buffer==NULL) {
-					DWORD idd2 = GetLastError();
-
-				}
-				int n = sizeof(s);
-
+								
 				strcpy_s(buffer,len+1, s);  //将用户输入的数据复制到指针变量中，实际上就是复制到分配的内存块中
 				
 				BOOL flag=GlobalUnlock(clipbuffer);//数据写入完毕，进行解锁操作，并将引用计数器数字减1
@@ -270,12 +260,7 @@ void CQQMsgBoomDlg::OnBnClickedButton3()
 				
 				::SendMessage(hHandle, WM_PASTE, 0, 0);//模拟粘贴操作
 				Sleep(1000);
-				::SendMessage(hHandle, WM_KEYDOWN, VK_RETURN, 0);//模拟回车按键操作，类似于点击了发送
-				
-
-				
-				//delete buffer;
-				//buffer = NULL;
+				::SendMessage(hHandle, WM_KEYDOWN, VK_RETURN, 0);//模拟回车按键操作，类似于点击了发送				
 			}
 		}
 	}
