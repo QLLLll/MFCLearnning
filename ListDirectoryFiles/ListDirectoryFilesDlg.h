@@ -6,7 +6,9 @@
 #include "afxcmn.h"
 #include "afxwin.h"
 #include"LogPath.h"
-
+#include<vector>
+#include<iterator>
+using namespace std;
 // CListDirectoryFilesDlg ¶Ô»°¿ò
 class CListDirectoryFilesDlg : public CDialogEx
 {
@@ -49,6 +51,7 @@ private:
 	CButton m_btnDown;
 	CButton m_btnUp;
 	CLogPath *m_logPh=NULL;
+	vector<CString>vecPath;
 public:
 //	afx_msg void OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult);
 private:

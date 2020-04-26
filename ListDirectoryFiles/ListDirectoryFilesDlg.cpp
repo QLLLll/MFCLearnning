@@ -319,11 +319,13 @@ void CListDirectoryFilesDlg::OnNMDblclkList1(NMHDR *pNMHDR, LRESULT *pResult)
 		SetDlgItemText(IDC_PATH, m_chanPath);
 		
 		m_logPh->m_listBox.AddString(oPath);
+		vecPath.push_back(oPath);
 
 	}
 	int m = m_logPh->m_listBox.GetCount();
 	if (m > 0) {
 		m_btnDown.EnableWindow(TRUE);
+
 	}
 	else {
 		m_btnDown.EnableWindow(FALSE);
