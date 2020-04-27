@@ -47,6 +47,7 @@ BEGIN_MESSAGE_MAP(CListDirectoryFilesDlg, CDialogEx)
 	ON_EN_CHANGE(IDC_PATH, &CListDirectoryFilesDlg::OnEnChangePath)
 	ON_BN_CLICKED(IDC_BTN_UP, &CListDirectoryFilesDlg::OnBnClickedBtnUp)
 	ON_MESSAGE(WM_SENDPATH, OnGetPath)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -107,6 +108,14 @@ BOOL CListDirectoryFilesDlg::OnInitDialog()
 		m_logPh->Create(IDD_LOG_PATH, AfxGetApp()->GetMainWnd());
 	}
 
+	CRect rect;
+
+	rect.left = theApp.GetProfileIntW(_T("CRECT"), _T("Left"), 200);
+	rect.top = theApp.GetProfileIntW(_T("CRECT"), _T("top"), 300);
+	rect.right = theApp.GetProfileIntW(_T("CRECT"), _T("right"), 400);
+	rect.bottom = theApp.GetProfileIntW(_T("CRECT"), _T("bottom"), 400);
+
+	MoveWindow(rect, FALSE);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -287,15 +296,6 @@ void CListDirectoryFilesDlg::OnBnClickedSearch()
 	ShowList();
 
 }
-
-
-//void CListDirectoryFilesDlg::OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult)
-//{
-//	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-//	// TODO: 在此添加控件通知处理程序代码
-//	*pResult = 0;
-//}
-
 
 void CListDirectoryFilesDlg::OnBnClickedBtnDown()
 {
@@ -491,5 +491,24 @@ void CListDirectoryFilesDlg::OnBnClickedBtnUp()
 	SetDlgItemText(IDC_PATH, str);
 
 	ShowList();
+
+}
+
+
+void CListDirectoryFilesDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	// TODO: 在此处添加消息处理程序代码
+
+	CRect rect;
+
+	::GetWindowRect(AfxGetApp()->GetMainWnd()->GetSafeHwnd(),rect);
+
+	theApp.WriteProfileInt(_T("CRECT"), _T("LEFT"), rect.left);
+	theApp.WriteProfileInt(_T("CRECT"), _T("RIGHT"), rect.right);
+	theApp.WriteProfileInt(_T("CRECT"), _T("TOP"), rect.top);
+	theApp.WriteProfileInt(_T("CRECT"), _T("BOTTOM"), rect.bottom);
+
 
 }

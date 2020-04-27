@@ -64,4 +64,5 @@ public:
 	afx_msg void OnBnClickedBtnFward();
 	afx_msg void OnEnChangePath();
 	afx_msg void OnBnClickedBtnUp();
+	afx_msg void OnDestroy();
 };
