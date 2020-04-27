@@ -1,6 +1,6 @@
 #pragma once
 #include "afxwin.h"
-
+#define WM_SENDPATH WM_USER+134
 
 // CLogPath ¶Ô»°¿ò
 
@@ -23,4 +23,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CListBox m_listBox;
+	afx_msg void OnLbnSelchangeList1();
 };

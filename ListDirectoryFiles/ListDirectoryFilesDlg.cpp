@@ -17,8 +17,7 @@
 
 
 CListDirectoryFilesDlg::CListDirectoryFilesDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_LISTDIRECTORYFILES_DIALOG, pParent)
-	, m_dirPath(_T(""))
+	: CDialogEx(IDD_LISTDIRECTORYFILES_DIALOG, pParent)	
 	, m_logIsShow(FALSE)
 	, m_chanPath(_T(""))
 {
@@ -33,7 +32,6 @@ void CListDirectoryFilesDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BTN_FWARD, m_btnFward);
 	DDX_Control(pDX, IDC_BTN_DOWN, m_btnDown);
 	DDX_Control(pDX, IDC_BTN_UP, m_btnUp);
-	DDX_Control(pDX, IDC_LIST_LOGPATH, m_logPath);
 }
 
 BEGIN_MESSAGE_MAP(CListDirectoryFilesDlg, CDialogEx)
@@ -41,9 +39,14 @@ BEGIN_MESSAGE_MAP(CListDirectoryFilesDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_CLOSE()
 	ON_BN_CLICKED(IDC_SEARCH, &CListDirectoryFilesDlg::OnBnClickedSearch)
-//	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST1, &CListDirectoryFilesDlg::OnLvnItemchangedList1)
+	//	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST1, &CListDirectoryFilesDlg::OnLvnItemchangedList1)
 	ON_BN_CLICKED(IDC_BTN_DOWN, &CListDirectoryFilesDlg::OnBnClickedBtnDown)
 	ON_NOTIFY(NM_DBLCLK, IDC_LIST1, &CListDirectoryFilesDlg::OnNMDblclkList1)
+	ON_BN_CLICKED(IDC_BTN_BACK, &CListDirectoryFilesDlg::OnBnClickedBtnBack)
+	ON_BN_CLICKED(IDC_BTN_FWARD, &CListDirectoryFilesDlg::OnBnClickedBtnFward)
+	ON_EN_CHANGE(IDC_PATH, &CListDirectoryFilesDlg::OnEnChangePath)
+	ON_BN_CLICKED(IDC_BTN_UP, &CListDirectoryFilesDlg::OnBnClickedBtnUp)
+	ON_MESSAGE(WM_SENDPATH, OnGetPath)
 END_MESSAGE_MAP()
 
 
@@ -55,24 +58,20 @@ int CALLBACK CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort) {
 	CListCtrl* lc = (CListCtrl*)lParamSort;
 	CString s1 = lc->GetItemText(row1, 2);
 	CString s2 = lc->GetItemText(row2, 2);
-	
+
 	// 比较，对不同的列，不同比较，注意记录前一次排序方向，下一次要相反排序		 
-	if(s1.Compare(_T("文件夹"))==0)
+	if (s1.Compare(_T("文件夹")) == 0)
 		return  -1;
-	
 	else
 	{
 		return  1;
 	}
-	
-
 }
 
 BOOL CListDirectoryFilesDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 	m_logIsShow = 0;
-	m_logPath.ShowWindow(FALSE);
 	// 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
 	//  执行此操作
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
@@ -83,7 +82,7 @@ BOOL CListDirectoryFilesDlg::OnInitDialog()
 	m_list.InsertColumn(0, _T("名称"), LVCFMT_LEFT, 340);
 	m_list.InsertColumn(1, _T("修改日期"), LVCFMT_LEFT, 180);
 	m_list.InsertColumn(2, _T("类型"), LVCFMT_LEFT, 100);
-	m_list.InsertColumn(3, _T("大小"), LVCFMT_LEFT,100);
+	m_list.InsertColumn(3, _T("大小"), LVCFMT_LEFT, 100);
 	m_list.SetExtendedStyle(m_list.GetExtendedStyle()
 		| LVS_EX_FULLROWSELECT
 		| LVS_EX_GRIDLINES);
@@ -97,7 +96,7 @@ BOOL CListDirectoryFilesDlg::OnInitDialog()
 
 	}
 	m_list.SortItems(CompareFunc, (DWORD)&m_list);
-	
+
 	m_btnUp.EnableWindow(FALSE);
 	m_btnBack.EnableWindow(FALSE);
 	m_btnFward.EnableWindow(FALSE);
@@ -108,7 +107,7 @@ BOOL CListDirectoryFilesDlg::OnInitDialog()
 		m_logPh->Create(IDD_LOG_PATH, AfxGetApp()->GetMainWnd());
 	}
 
-	
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -122,7 +121,7 @@ void CListDirectoryFilesDlg::ListFiles(CString  path) {
 
 	CFileFind ff;
 
-	if(path.IsEmpty())
+	if (path.IsEmpty())
 	{
 		path = _T("c:\\*.*");
 	}
@@ -140,7 +139,7 @@ void CListDirectoryFilesDlg::ListFiles(CString  path) {
 
 		bworking = ff.FindNextFileW();
 
-		if (ff.IsHidden()||ff.IsSystem()) {
+		if (ff.IsHidden() || ff.IsSystem()) {
 			continue;
 		}
 
@@ -156,16 +155,16 @@ void CListDirectoryFilesDlg::ListFiles(CString  path) {
 			int dot = ff.GetFilePath().ReverseFind('.');
 			fileType = ff.GetFilePath().Mid(dot);
 			ULONGLONG	size = ff.GetLength();
-			fileLen.Format(_T("%dKB"), size/1024+1);
+			fileLen.Format(_T("%dKB"), size / 1024 + 1);
 		}
 
-		
-		
+
+
 		CTime time;
 		ff.GetLastWriteTime(time);
 
 		lastTime = time.Format(_T("%y-%m-%d %H:%M:%S"));
-		
+
 		m_list.InsertItem(i, fileName);
 		m_list.SetItemText(i, 1, lastTime);
 		m_list.SetItemText(i, 2, fileType);
@@ -235,11 +234,11 @@ void CListDirectoryFilesDlg::OnClose()
 	//CDialogEx::OnClose();
 }
 
-
-void CListDirectoryFilesDlg::OnBnClickedSearch()
-{
+void CListDirectoryFilesDlg::ShowList() {
 	CString path;
 	GetDlgItemText(IDC_PATH, path);
+
+
 
 	ListFiles(path + _T("//*.*"));
 
@@ -250,7 +249,42 @@ void CListDirectoryFilesDlg::OnBnClickedSearch()
 
 	}
 	m_list.SortItems(CompareFunc, (DWORD)&m_list);
+}
 
+void CListDirectoryFilesDlg::OnBnClickedSearch()
+{
+	CString path;
+	GetDlgItemText(IDC_PATH, path);
+
+	int lastIdx = path.ReverseFind('/');
+
+	CString str1 = path.Mid(lastIdx + 1);
+	m_logPh->m_listBox.AddString(str1);
+
+	m_vecPath.push_back(path);
+
+
+	int m = m_logPh->m_listBox.GetCount();
+
+	if (m > 0) {
+		m_btnDown.EnableWindow(TRUE);
+
+		if (m > 5) {
+			m_vecPath.erase(m_vecPath.begin(), m_vecPath.begin() + 1);
+			m_logPh->m_listBox.DeleteString(0);
+			m = m_logPh->m_listBox.GetCount();
+			m_logPh->m_listBox.SetCurSel(m - 1);
+		}
+
+		SetBtnEnable(m - 1,m);
+
+	}
+	else {
+		m_btnDown.EnableWindow(FALSE);
+
+	}
+
+	ShowList();
 
 }
 
@@ -268,7 +302,7 @@ void CListDirectoryFilesDlg::OnBnClickedBtnDown()
 	CRect rec;
 
 	m_btnDown.GetWindowRect(rec);
-	if (m_logIsShow==0)
+	if (m_logIsShow == 0)
 	{
 		if (m_logPh == NULL) {
 			m_logPh = new CLogPath();
@@ -283,7 +317,7 @@ void CListDirectoryFilesDlg::OnBnClickedBtnDown()
 		}
 		m_logIsShow = 1;
 	}
-	else  {
+	else {
 		if (m_logPh != NULL) {
 
 			m_logIsShow = m_logPh->ShowWindow(SW_HIDE);
@@ -291,7 +325,20 @@ void CListDirectoryFilesDlg::OnBnClickedBtnDown()
 		}
 	}
 
-	
+
+}
+
+LRESULT CListDirectoryFilesDlg::OnGetPath(WPARAM wParam, LPARAM iParam)
+{
+	int idex = (int)iParam;
+
+	CString str = m_vecPath[idex];
+
+	SetDlgItemText(IDC_PATH, str);
+
+	ShowList();
+
+	return 0;
 }
 
 
@@ -299,7 +346,7 @@ void CListDirectoryFilesDlg::OnNMDblclkList1(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMITEMACTIVATE active = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 	// TODO: 在此添加控件通知处理程序代码
-	
+
 	CString str1;
 	CString str2;
 	//str.Format(L"%d,%d", active->iItem, active->iSubItem);
@@ -308,23 +355,34 @@ void CListDirectoryFilesDlg::OnNMDblclkList1(NMHDR *pNMHDR, LRESULT *pResult)
 
 		int row = active->iItem;
 
-		str1=m_list.GetItemText(row, 0);
+		str1 = m_list.GetItemText(row, 0);
 		str2 = m_list.GetItemText(row, 2);
 	}
 
 	if (str2.Compare(_T("文件夹")) == 0) {
 		CString oPath;
 		GetDlgItemText(IDC_PATH, oPath);
-		m_chanPath = oPath + _T("//") + str1;
+		m_chanPath = oPath + _T("\/") + str1;
 		SetDlgItemText(IDC_PATH, m_chanPath);
-		
-		m_logPh->m_listBox.AddString(oPath);
-		vecPath.push_back(oPath);
+
+		m_logPh->m_listBox.AddString(str1);
+
+		m_vecPath.push_back(m_chanPath);
 
 	}
 	int m = m_logPh->m_listBox.GetCount();
+	m_logPh->m_listBox.SetCurSel(m - 1);
 	if (m > 0) {
 		m_btnDown.EnableWindow(TRUE);
+
+		if (m > 5) {
+			m_vecPath.erase(m_vecPath.begin(), m_vecPath.begin() + 1);
+			m_logPh->m_listBox.DeleteString(0);
+			m = m_logPh->m_listBox.GetCount();
+			m_logPh->m_listBox.SetCurSel(m - 1);
+		}
+
+		SetBtnEnable(m - 1, m);
 
 	}
 	else {
@@ -332,6 +390,106 @@ void CListDirectoryFilesDlg::OnNMDblclkList1(NMHDR *pNMHDR, LRESULT *pResult)
 
 	}
 
-
+	ShowList();
 	*pResult = 0;
+}
+
+
+void CListDirectoryFilesDlg::OnBnClickedBtnBack()
+{
+	int total = m_logPh->m_listBox.GetCount();
+	int index = m_logPh->m_listBox.GetCurSel();
+
+	if (index == 0)
+		return;
+
+	m_logPh->m_listBox.SetCurSel(index - 1);
+
+	CString selStr;
+	m_logPh->m_listBox.SelectString(index - 1, selStr);
+
+	CString getStr = m_vecPath[index - 1];
+
+	SetDlgItemText(IDC_PATH, getStr);
+
+	SetBtnEnable(index - 1,total);
+	ShowList();
+
+}
+void CListDirectoryFilesDlg::SetBtnEnable(int index,int total) {
+
+	if (index == 0&&total>1) {
+		m_btnBack.EnableWindow(FALSE);
+		m_btnFward.EnableWindow(TRUE);
+	}
+	else if (index == total-1&&total>1)
+	{
+		m_btnFward.EnableWindow(FALSE);
+		m_btnBack.EnableWindow(TRUE);
+	}
+	else if (index > 0 && index <total-1) {
+		m_btnBack.EnableWindow(TRUE);
+		m_btnFward.EnableWindow(TRUE);
+	}
+	
+}
+
+
+void CListDirectoryFilesDlg::OnBnClickedBtnFward()
+{
+	int index = m_logPh->m_listBox.GetCurSel();
+	int total = m_logPh->m_listBox.GetCount();
+	if (index >= total-1)
+		return;
+
+	m_logPh->m_listBox.SetCurSel(index + 1);
+
+	CString selStr;
+	m_logPh->m_listBox.SelectString(index + 1, selStr);
+
+	CString getStr = m_vecPath[index + 1];
+
+	SetDlgItemText(IDC_PATH, getStr);
+
+
+
+	SetBtnEnable(index + 1,total);
+	ShowList();
+}
+
+
+void CListDirectoryFilesDlg::OnEnChangePath()
+{
+	CString path;
+	GetDlgItemText(IDC_PATH, path);
+
+	int index = path.Find('\/', 0);
+
+	if (index > -1) {
+		m_btnUp.EnableWindow(TRUE);
+	}
+	else {
+		m_btnUp.EnableWindow(FALSE);
+
+	}
+	
+}
+
+
+void CListDirectoryFilesDlg::OnBnClickedBtnUp()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString path;
+	GetDlgItemText(IDC_PATH, path);
+
+	int index = path.ReverseFind('\/');
+	if (index < 0) {
+		return;
+	}
+	CString str = path.Mid(0, index);
+
+	SetDlgItemText(IDC_PATH, str);
+
+	ShowList();
+
 }

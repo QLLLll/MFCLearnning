@@ -40,29 +40,28 @@ protected:
 	virtual void OnCancel();
 public:
 	afx_msg void OnClose();
+	void ShowList();
 private:
 	CListCtrl m_list;
 public:
 	afx_msg void OnBnClickedSearch();
-private:
-	CString m_dirPath;
+private:	
 	CButton m_btnBack;
 	CButton m_btnFward;
 	CButton m_btnDown;
 	CButton m_btnUp;
 	CLogPath *m_logPh=NULL;
-	vector<CString>vecPath;
-public:
-//	afx_msg void OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult);
-private:
-	CListBox m_logPath;
-	BOOL m_logIsShow;
+	vector<CString>m_vecPath;
+	CString m_chanPath;
+	BOOL m_logIsShow;	
 public:
 	afx_msg void OnBnClickedBtnDown();
-private:
-	
+	afx_msg LRESULT OnGetPath(WPARAM wParam, LPARAM iParam);	
 public:
 	afx_msg void OnNMDblclkList1(NMHDR *pNMHDR, LRESULT *pResult);
-private:
-	CString m_chanPath;
+	afx_msg void OnBnClickedBtnBack();
+	void SetBtnEnable(int index, int total);
+	afx_msg void OnBnClickedBtnFward();
+	afx_msg void OnEnChangePath();
+	afx_msg void OnBnClickedBtnUp();
 };
