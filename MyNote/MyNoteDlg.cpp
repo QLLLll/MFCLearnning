@@ -21,6 +21,7 @@ CMyNoteDlg::CMyNoteDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_MYNOTE_DIALOG, pParent)
 	, m_fileName(_T(""))
 	, m_findOpen(FALSE)
+	, m_txtChans(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -45,6 +46,7 @@ BEGIN_MESSAGE_MAP(CMyNoteDlg, CDialogEx)
 	ON_COMMAND(ID_32777, &CMyNoteDlg::OnInsertDate)
 	ON_MESSAGE(WM_FIND_EVENT, OnFindStr)
 	ON_COMMAND(ID_32781, &CMyNoteDlg::OnCopyOther)
+	ON_EN_CHANGE(IDC_EDIT1, &CMyNoteDlg::OnEnChangeEdit1)
 END_MESSAGE_MAP()
 
 
@@ -198,15 +200,15 @@ void CMyNoteDlg::OnNewFile()
 	CString txt;
 	GetDlgItemText(IDC_EDIT1, txt);
 
-	if (!m_fileName.IsEmpty() || !txt.IsEmpty()) {
-		if (MessageBox(_T("是否保存"), _T("是否保存"), MB_OKCANCEL) == IDOK) {
+	if ((!m_fileName.IsEmpty() || !txt.IsEmpty())) {
+		if (m_txtChans == true && MessageBox(_T("是否保存"), _T("是否保存"), MB_OKCANCEL) == IDOK) {
 			OnSaveFile();
+			m_txtChans = false;
 			txt.Empty();
 			SetDlgItemText(IDC_EDIT1, txt);
 			m_fileName.Empty();
 		}
-		else {
-			
+		else {			
 			txt.Empty();
 			SetDlgItemText(IDC_EDIT1, txt);
 			m_fileName.Empty();
@@ -466,4 +468,12 @@ void CMyNoteDlg::OnCopyOther()
 	else
 		MessageBox(_T("查找窗口失败！"));
 	
+}
+
+
+void CMyNoteDlg::OnEnChangeEdit1()
+{
+
+	m_txtChans = true;
+
 }

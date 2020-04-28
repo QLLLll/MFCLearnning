@@ -61,4 +61,8 @@ private:
 	BOOL m_findOpen;
 public:
 	afx_msg void OnCopyOther();
+private:
+	bool m_txtChans;
+public:
+	afx_msg void OnEnChangeEdit1();
 };
