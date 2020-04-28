@@ -150,7 +150,7 @@ void CTestSRDllDlg::OnBnClickedButton1()
 
 }
 
-
+//添加二进制文件到数据库
 void CTestSRDllDlg::OnBnClickedButton2()
 {
 
@@ -177,7 +177,7 @@ void CTestSRDllDlg::OnBnClickedButton2()
 	file.Close();
 }
 
-
+//从数据库下载二进制文件
 void CTestSRDllDlg::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -208,7 +208,7 @@ void CTestSRDllDlg::OnBnClickedButton3()
 	GlobalUnlock(m_tbl->m_m_data.m_hData);
 }
 
-
+//调用静态库测试
 void CTestSRDllDlg::OnBnClickedButton4()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -230,7 +230,7 @@ void CTestSRDllDlg::OnBnClickedButton4()
 #endif
 
 }
-
+//调用动态库测试
 typedef int(* fn)(int a, int b);
 typedef int(*fn2)(void);
 void CTestSRDllDlg::OnBnClickedButton5()
@@ -256,7 +256,7 @@ void CTestSRDllDlg::OnBnClickedButton5()
 	MessageBox(str);
 	FreeLibrary(hDll);
 }
-
+//调用动态库里面的类方法
 typedef Interface *(*fnClass)();
 void CTestSRDllDlg::OnBnClickedButton6()
 {
