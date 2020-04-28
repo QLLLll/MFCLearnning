@@ -1,0 +1,4 @@
+LIBRARY "MyTestDLL"
+EXPORTS
+fnMyTestDLL
+GetMyDll

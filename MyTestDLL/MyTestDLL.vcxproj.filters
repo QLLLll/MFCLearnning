@@ -18,58 +18,30 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestSRDll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TestSRDllDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="tbl_dll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MyTestDLL.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Interface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestSRDll.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TestSRDllDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="tbl_dll.cpp">
+    <ClCompile Include="MyTestDLL.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TestSRDll.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\TestSRDll.rc2">
-      <Filter>资源文件</Filter>
+    <None Include="Source.def">
+      <Filter>源文件</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\TestSRDll.ico">
-      <Filter>资源文件</Filter>
-    </Image>
   </ItemGroup>
 </Project>

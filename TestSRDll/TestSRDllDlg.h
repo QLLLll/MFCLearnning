@@ -3,8 +3,14 @@
 //
 
 #pragma once
+#define FLAG 0
 #include"tbl_dll.h"
-
+#include"MyTestDLL.h"
+#include"Interface.h"
+# if FLAG
+#include"MyTestDLL.h"
+#pragma  comment(lib,"MyTestDLL")
+#endif
 // CTestSRDllDlg ¶Ô»°¿ò
 class CTestSRDllDlg : public CDialogEx
 {
@@ -44,4 +50,7 @@ private:
 public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton4();
+	afx_msg void OnBnClickedButton5();
+	afx_msg void OnBnClickedButton6();
 };

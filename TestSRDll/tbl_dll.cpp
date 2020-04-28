@@ -25,7 +25,10 @@ Ctbl_dll::Ctbl_dll(CDatabase* pdb)
 // 储为其他格式或使用其他的用户身份验证。
 CString Ctbl_dll::GetDefaultConnect()
 {
-	return _T("Description=\x6d4b\x8bd5\x8bfb\x53d6\x4e8c\x8fdb\x5236;DRIVER=SQL Server;SERVER=DESKTOP-I7LA8BS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=DESKTOP-I7LA8BS;DATABASE=Learnning");
+	//COMP-02-2433\\SQLEXPRESS
+	return _T("Description=\x6d4b\x8bd5\x8bfb\x53d6\x4e8c\x8fdb\x5236;DRIVER=SQL Server;SERVER=COMP-02-2433\\SQLEXPRESS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=COMP-02-2433\\SQLEXPRESS;DATABASE=Learnning");
+
+	//return _T("Description=\x6d4b\x8bd5\x8bfb\x53d6\x4e8c\x8fdb\x5236;DRIVER=SQL Server;SERVER=DESKTOP-I7LA8BS;UID=sa;PWD=940619.lq;APP=Microsoft? Visual Studio? 2015;WSID=DESKTOP-I7LA8BS;DATABASE=Learnning");
 }
 
 CString Ctbl_dll::GetDefaultSQL()

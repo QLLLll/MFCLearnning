@@ -2,6 +2,7 @@
 // TestSRDllDlg.cpp : 实现文件
 //
 
+
 #include "stdafx.h"
 #include "TestSRDll.h"
 #include "TestSRDllDlg.h"
@@ -35,6 +36,9 @@ BEGIN_MESSAGE_MAP(CTestSRDllDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CTestSRDllDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CTestSRDllDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CTestSRDllDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON4, &CTestSRDllDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON5, &CTestSRDllDlg::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &CTestSRDllDlg::OnBnClickedButton6)
 END_MESSAGE_MAP()
 
 
@@ -54,7 +58,7 @@ BOOL CTestSRDllDlg::OnInitDialog()
 	if (m_tbl == NULL)
 	{
 		m_tbl = new Ctbl_dll();
-		
+
 	}
 	if (m_tbl->IsOpen() == FALSE) {
 		BOOL isOpen = m_tbl->Open(CRecordset::dynaset);
@@ -130,7 +134,7 @@ void CTestSRDllDlg::OnClose()
 //打开
 void CTestSRDllDlg::OnBnClickedButton1()
 {
-	CFileDialog fDiaLog(TRUE, TEXT("*.txt"),NULL,
+	CFileDialog fDiaLog(TRUE, TEXT("*.txt"), NULL,
 		OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
 		_T("txt Files (*.dll)|*.dll|All Files (*.*)|*.*||"), NULL);
 	CString path;
@@ -162,10 +166,10 @@ void CTestSRDllDlg::OnBnClickedButton2()
 	m_tbl->m_m_data.m_dwDataLength = filestatus.m_size;
 	HGLOBAL hGlobal = GlobalAlloc(GPTR, filestatus.m_size);
 	m_tbl->m_m_data.m_hData = GlobalLock(hGlobal);
-	file.Read(m_tbl->m_m_data.m_hData, filestatus.m_size);	
+	file.Read(m_tbl->m_m_data.m_hData, filestatus.m_size);
 	m_tbl->SetFieldDirty(&m_tbl->m_m_data);
 	m_tbl->SetFieldNull(&m_tbl->m_m_data, FALSE);
-	BOOL flag=m_tbl->Update();
+	BOOL flag = m_tbl->Update();
 	GlobalUnlock(hGlobal);
 	if (flag == TRUE) {
 		MessageBox(_T("保存成功"));
@@ -193,7 +197,7 @@ void CTestSRDllDlg::OnBnClickedButton3()
 
 	CFile file;
 	CFileStatus filestatus;
-	file.Open(m_path, CFile::modeCreate|CFile::modeWrite);
+	file.Open(m_path, CFile::modeCreate | CFile::modeWrite);
 
 	m_tbl->MoveFirst();
 
@@ -202,4 +206,79 @@ void CTestSRDllDlg::OnBnClickedButton3()
 	file.Write(byt, m_tbl->m_m_data.m_dwDataLength);
 	file.Close();
 	GlobalUnlock(m_tbl->m_m_data.m_hData);
+}
+
+
+void CTestSRDllDlg::OnBnClickedButton4()
+{
+	// TODO: 在此添加控件通知处理程序代码
+#if flag
+	CMyTestDLL myDll(10, 20);
+
+	int m = myDll.sum();
+
+	int q = fnMyTestDLL();
+
+	int s = nMyTestDLL;
+
+	CString str;
+
+	str.Format(TEXT("%d,%d,%d"), m, q, s);
+
+	MessageBox(str);
+
+#endif
+
+}
+
+typedef int(* fn)(int a, int b);
+typedef int(*fn2)(void);
+void CTestSRDllDlg::OnBnClickedButton5()
+{
+	HINSTANCE hDll;
+
+	hDll = LoadLibrary(TEXT("MyTestDLL.dll"));
+
+	if (hDll == NULL) {
+		return;
+	}
+
+	fn2  sum = (fn2)GetProcAddress(hDll, "fnMyTestDLL");
+	if (sum == NULL) {
+		FreeLibrary(hDll);
+		return;
+	}
+	//int a = sum(10, 30);
+	int a = sum();
+	CString str;
+	str.Format(TEXT("%d"), a);
+
+	MessageBox(str);
+	FreeLibrary(hDll);
+}
+
+typedef Interface *(*fnClass)();
+void CTestSRDllDlg::OnBnClickedButton6()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	HINSTANCE hdll;
+
+	hdll = LoadLibrary(TEXT("MyDLL.dll"));
+
+	if (hdll == NULL) {
+		return;
+	}
+
+	fnClass cls;	
+	cls=(fnClass)GetProcAddress(hdll, "CreateDll");
+	if (cls == NULL) {
+		return;
+	}
+	Interface *dll = cls();
+	CString str;
+	str.Format(TEXT("%d"), dll->sum(10,100));
+	AfxMessageBox(str);
+	delete dll;
+	dll = NULL;
+
 }
