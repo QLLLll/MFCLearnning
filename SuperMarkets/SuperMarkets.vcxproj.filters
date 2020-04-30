@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3d8e5c8f-e3b1-475e-a422-1964231d62db}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f3c519e7-cc1c-4891-a0ce-f431f0f1264c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{7889b397-3b80-4f24-9f10-19b1858c0825}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AdminDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADOConn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GoodsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InOutDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogInDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGoodsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewUserDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaleDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettlementDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMarkets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMarketsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TicketDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SuperMarkets.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdminDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADOConn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GoodsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InOutDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogInDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGoodsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewUserDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaleDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettlementDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMarkets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMarketsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TicketDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\123.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\42.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\SuperMarkets.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\仓库.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\后台.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\货物.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\库存信息.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\日结查询.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\入库登记.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\商品信息.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\统计.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\退出.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\销售.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\销售查询.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\用户.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\用户管理.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\SuperMarkets.rc2">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

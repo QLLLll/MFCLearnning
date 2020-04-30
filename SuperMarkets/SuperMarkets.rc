@@ -1,0 +1,463 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\SuperMarkets.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SuperMarkets.ico"
+IDI_ICON1               ICON                    "res\\42.ico"
+IDI_STORAGE             ICON                    "res\\仓库.ico"
+IDI_EXIT                ICON                    "res\\退出.ico"
+IDI_USER                ICON                    "res\\用户.ico"
+IDI_SALE                ICON                    "res\\销售.ico"
+IDI_GOODS               ICON                    "res\\货物.ico"
+IDI_COUNT               ICON                    "res\\统计.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 SuperMarkets"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "SuperMarkets 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2010",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_SUPERMARKETS_DIALOG DIALOGEX 0, 0, 442, 299
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "销售商品",IDC_BSALE,381,158,50,14
+    EDITTEXT        IDC_EACT,141,170,66,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "收银",IDC_BCHECK,381,183,54,14
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,49,372,88
+    CONTROL         "List1",IDC_LIST2,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,205,387,87
+    LTEXT           "销售员：",IDC_STATIC,15,14,33,8
+    LTEXT           "Static",IDC_WORKERNAME,51,14,45,8
+    LTEXT           "日期：",IDC_STATIC,166,14,25,8
+    LTEXT           "Static",IDC_DATE,211,14,70,8
+    LTEXT           "时间：",IDC_STATIC,301,14,42,8
+    LTEXT           "Static",IDC_TIME,347,14,54,8
+    CONTROL         "打印小票",IDC_TICKET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,315,183,48,10
+    LTEXT           "应收：",IDC_SSHOULD,7,173,25,8
+    EDITTEXT        IDC_ESHOLD,35,170,66,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "实收：",IDC_SACT,113,173,25,8
+    LTEXT           "找零：",IDC_SCHANGE,219,172,25,8
+    EDITTEXT        IDC_ECHANGE,247,169,66,14,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "销售统计：",IDC_STATISTICS,7,143,428,54
+END
+
+IDD_LOGIN_DIALOG DIALOG 0, 0, 105, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "超市管理系统"
+FONT 10, "System"
+BEGIN
+    PUSHBUTTON      "确定",IDOK,5,64,43,13
+    EDITTEXT        IDC_ID,36,16,57,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PW,35,37,58,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "取消",IDCANCEL,54,64,43,13,WS_GROUP
+    LTEXT           "账号：",IDC_STATIC,7,19,27,12
+    LTEXT           "密码：",IDC_STATIC,7,39,27,12
+END
+
+IDD_SALE_DIALOG DIALOG 0, 0, 201, 105
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "销售商品"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_GOODS,109,23,79,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NUM,53,44,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,44,75,50,14
+    COMBOBOX        IDC_COMTYPE,53,24,48,106,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "取消",IDCANCEL,112,75,50,14
+    LTEXT           "商品：",IDC_STATIC,25,27,25,8
+    LTEXT           "数量：",IDC_STATIC,27,47,25,8
+END
+
+IDD_ADMIN_DIALOG DIALOGEX 0, 0, 233, 43
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "后台管理系统"
+FONT 10, "System", 0, 0, 0x0
+BEGIN
+END
+
+IDD_USER_DIALOG DIALOG 0, 0, 328, 197
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "员工管理系统"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,1,84,261,102
+    LTEXT           "员工：",IDC_STATIC,4,62,27,9
+    COMBOBOX        IDC_COMBO1,32,60,48,68,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_INFO,84,60,80,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "查询",IDC_SELECT,176,59,50,14
+    PUSHBUTTON      "增员",IDC_ADD,270,109,50,14
+    PUSHBUTTON      "修改",IDC_MODFY,248,60,50,14
+    PUSHBUTTON      "减员",IDC_DELETE,272,144,50,14
+END
+
+IDD_NEW_USER_DIALOG DIALOG 0, 0, 180, 241
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "员工编辑模块"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_PWD,67,40,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,67,61,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POSITION,67,81,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ID,67,101,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PHONE,67,122,97,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS,67,143,97,15,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,65,164,48,109,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "男",IDC_MALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,66,185,24,10
+    CONTROL         "女",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON,109,185,24,10
+    DEFPUSHBUTTON   "确定",IDOK,27,205,50,14
+    PUSHBUTTON      "取消",IDCANCEL,89,205,50,14
+    LTEXT           "员 工 号：",IDC_STATIC,23,24,41,8
+    EDITTEXT        IDC_WORKID,67,21,97,15,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "密    码：",IDC_STATIC,23,43,41,8
+    LTEXT           "姓    名：",IDC_STATIC,23,63,41,8
+    LTEXT           "职    务：",IDC_STATIC,23,83,41,8
+    LTEXT           "身份证号：",IDC_STATIC,23,104,41,8
+    LTEXT           "联系电话：",IDC_STATIC,23,126,41,8
+    LTEXT           "家庭住址：",IDC_STATIC,23,148,41,8
+    LTEXT           "权限：",IDC_STATIC,27,165,35,11
+    LTEXT           "性别：",IDC_STATIC,23,185,34,9
+END
+
+IDD_STORAGE_DIALOG DIALOG 0, 0, 381, 230
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "仓库管理系统"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,0,56,198,169
+    PUSHBUTTON      "查询",IDC_SELECT,317,143,50,14
+    PUSHBUTTON      "入库",IDC_INSTORAGE,236,194,50,14
+    PUSHBUTTON      "出库",IDC_OUTSTORAGE,310,194,50,14
+    CONTROL         "货物编号",IDC_ID,"Button",BS_AUTORADIOBUTTON | WS_GROUP,216,74,48,10
+    CONTROL         "货物余量",IDC_LEFT,"Button",BS_AUTORADIOBUTTON,268,74,48,10
+    CONTROL         "货物销量",IDC_SALE,"Button",BS_AUTORADIOBUTTON,321,74,48,10
+    COMBOBOX        IDC_COMBO1,220,103,48,135,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "库存查询：",IDC_STATIC,201,52,180,111
+    GROUPBOX        "出入库管理：",IDC_STATIC,201,166,180,64
+    COMBOBOX        IDC_INFO,273,102,96,204,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_INOROUTSTORAGE_DIALOG DIALOG 0, 0, 208, 197
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "商品出入库管理"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,31,176,50,14
+    PUSHBUTTON      "取消",IDCANCEL,115,178,50,14
+    LTEXT           "货物编号：",IDC_STATIC,7,33,41,8
+    COMBOBOX        IDC_COMBO1,48,29,94,144,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "数    量：",IDC_STATIC,7,117,41,8
+    EDITTEXT        IDC_NUM,48,114,48,15,ES_AUTOHSCROLL
+    LTEXT           "价格：",IDC_STATIC,107,115,25,8
+    EDITTEXT        IDC_VALUE,131,115,41,16,ES_AUTOHSCROLL
+    LTEXT           "供货商：",IDC_WHO,7,147,33,8
+    EDITTEXT        IDC_SUPPLIER,48,143,144,19,ES_AUTOHSCROLL
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,0,52,194,55
+    GROUPBOX        "出入库信息：",IDC_INFO,0,9,201,159
+END
+
+IDD_TICKET_DIALOG DIALOG 0, 0, 277, 203
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "票据管理系统"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,1,84,210,103
+    LTEXT           "票据：",IDC_STATIC,4,62,27,9
+    COMBOBOX        IDC_INDEX,83,60,48,95,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_INFO,136,60,80,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "查询",IDC_SELECT,222,60,50,14
+    PUSHBUTTON      "批量销毁",IDC_DELETEALL,222,123,50,14
+    COMBOBOX        IDC_TYPE,32,60,49,86,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "销毁票据",IDC_DELETE,222,91,50,14
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | NOT WS_VISIBLE | WS_TABSTOP,135,59,78,15
+END
+
+IDD_GOODS_DIALOG DIALOG 0, 0, 302, 231
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "商品管理系统"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,1,84,234,146
+    LTEXT           "商品：",IDC_STATIC,17,65,27,9
+    COMBOBOX        IDC_COMBO1,47,62,56,68,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_INFO,155,62,80,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "查询",IDC_SELECT,241,96,50,14
+    PUSHBUTTON      "新增",IDC_ADD,241,121,50,14
+    PUSHBUTTON      "修改",IDC_MODFY,243,151,50,14
+    PUSHBUTTON      "删除",IDC_DELETE,243,182,50,14
+    COMBOBOX        IDC_COMBO2,110,62,35,100,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_NEWGOODS_DIALOG DIALOG 0, 0, 165, 249
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "商品编辑模块"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,11,203,50,14
+    PUSHBUTTON      "取消",IDCANCEL,87,204,50,14
+    LTEXT           "商品编号：",IDC_STATIC,9,31,41,8
+    EDITTEXT        IDC_GoodsID,51,27,89,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "商品名称：",IDC_STATIC,9,55,41,8
+    EDITTEXT        IDC_GoodsName,51,50,89,14,ES_AUTOHSCROLL
+    LTEXT           "条 形 码：",IDC_STATIC,9,79,41,8
+    EDITTEXT        IDC_BARCODE,51,73,89,14,ES_AUTOHSCROLL
+    LTEXT           "销售单价：",IDC_STATIC,9,99,41,8
+    EDITTEXT        IDC_VALUE,51,95,89,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,49,118,102,14,ES_AUTOHSCROLL
+    LTEXT           "主件：",IDC_STATIC,11,119,25,8
+    EDITTEXT        IDC_EDIT2,49,141,102,14,ES_AUTOHSCROLL
+    LTEXT           "配件：",IDC_STATIC,11,143,25,8
+    EDITTEXT        IDC_EDIT3,49,164,105,31,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "说明：",IDC_STATIC,11,167,25,8
+END
+
+IDD_SETTLEMENT_DIALOG DIALOG 0, 0, 319, 235
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "结算统计系统"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,1,83,258,76
+    LTEXT           "结算日：",IDC_STATIC,4,65,33,9
+    COMBOBOX        IDC_COMBO1,147,62,48,68,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_INFO,201,62,61,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "查询",IDC_SELECT,264,62,50,14
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,39,62,70,15
+    LTEXT           "商品销量",IDC_STATIC,111,65,33,8
+    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,2,160,258,61
+    PUSHBUTTON      "日结",IDC_COUNT,264,83,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "SuperMarkets Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "SuperMarkets"
+            VALUE "LegalCopyright", "版权所有 (C) 2010"
+            VALUE "OriginalFilename", "SuperMarkets.EXE"
+            VALUE "ProductName", "SuperMarkets 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SUPERMARKETS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 435
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 292
+    END
+
+    IDD_SALE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 194
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_ADMIN_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 186
+        BOTTOMMARGIN, 41
+    END
+
+    IDD_NEW_USER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_INOROUTSTORAGE_DIALOG, DIALOG
+    BEGIN
+    END
+
+    IDD_TICKET_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 272
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_GOODS_DIALOG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 230
+    END
+
+    IDD_NEWGOODS_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 163
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_SETTLEMENT_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 314
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ADMIN_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 SuperMarkets(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\SuperMarkets.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
