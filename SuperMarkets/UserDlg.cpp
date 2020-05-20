@@ -347,6 +347,7 @@ CString CUserDlg::CountWorkerID(CTime time)
 		{
 			ph = (char*)(_bstr_t)adoConn.m_pRecordset->GetCollect("WorkerID");
 			adoConn.m_pRecordset->MoveNext();
+			
 		}
 		ticketID.Format("%s%04d",time.Format("%y%m%d"),atoi(ph.Right(4))+1);
 	}

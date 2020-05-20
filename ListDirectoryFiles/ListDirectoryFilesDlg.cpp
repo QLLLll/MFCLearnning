@@ -65,7 +65,21 @@ int CALLBACK CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort) {
 		return  -1;
 	else
 	{
-		return  1;
+		CString ss1 = lc->GetItemText(row1, 3);
+		CString ss2 = lc->GetItemText(row2, 3);
+
+		ss1 = ss1.Mid(0, ss1.GetLength() - 2);
+		ss2 = ss2.Mid(0, ss2.GetLength() - 2);
+
+		int a = _wtoi(ss1);
+		int b = _wtoi(ss2);
+
+		if (a > b) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
 	}
 }
 
