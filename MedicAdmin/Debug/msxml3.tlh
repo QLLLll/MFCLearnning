@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.24215.1 (5eb2816b).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.23026.0 (debd928c).
 //
-// e:\c++学习代码\mfclearnning\medicadmin\debug\msxml3.tlh
+// d:\c++autocadcode\mfclllearnningrrrr\medicadmin\debug\msxml3.tlh
 //
 // C++ source equivalent of Win32 type library ../dll/msxml3.dll
-// compiler-generated file created 04/11/20 at 20:42:11 - DO NOT EDIT!
+// compiler-generated file created 05/20/20 at 16:14:51 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -5410,7 +5410,7 @@ extern "C" const GUID __declspec(selectany) IID_ISchemaNotation =
 // Wrapper method implementations
 //
 
-#include "e:\c++学习代码\mfclearnning\medicadmin\debug\msxml3.tli"
+#include "d:\c++autocadcode\mfclllearnningrrrr\medicadmin\debug\msxml3.tli"
 
 } // namespace MSXML2
 

@@ -169,7 +169,7 @@ void CMFCSendEmailDlg::OnBnClickedOk()
 	mySend = (pSend)GetProcAddress(hdll, "Send");
 	//int x = mySend(cmd);
 	
-	CString yzm = TEXT("验证码：6666");
+	CString yzm = TEXT("验证码：6666ddd");
 
 	CString cmd2;// = TEXT("-to kwjf11@sina.com -subject 更改密码 -body '%s' -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8");
 	cmd2.Format(TEXT("-to kwjf11@sina.com -subject 更改密码 -body '%s' -u 576484879@qq.com -pw lakqyyyykfnrbehi -charset utf-8"),yzm);
@@ -185,6 +185,10 @@ void CMFCSendEmailDlg::OnBnClickedOk()
 
 	
 	int x = mySend(dBuf);
+
+	delete dBuf;
+	dBuf = NULL;
+
 	//Send(cmd);
 	//-to kwjf11@sina.com - subject 更改密码 - body 验证码：6666 - sig LLLLL - ps psps
 }

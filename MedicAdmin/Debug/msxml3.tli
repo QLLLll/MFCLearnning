@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.24215.1 (5eb2816b).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.23026.0 (debd928c).
 //
-// e:\c++学习代码\mfclearnning\medicadmin\debug\msxml3.tli
+// d:\c++autocadcode\mfclllearnningrrrr\medicadmin\debug\msxml3.tli
 //
 // Wrapper implementations for Win32 type library ../dll/msxml3.dll
-// compiler-generated file created 04/11/20 at 20:42:11 - DO NOT EDIT!
+// compiler-generated file created 05/20/20 at 16:14:51 - DO NOT EDIT!
 
 #pragma once
 
